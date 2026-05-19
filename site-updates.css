@@ -1,0 +1,33 @@
+/* Keystone revised content architecture */
+.links{gap:22px}
+.nav{padding-left:36px;padding-right:36px}
+.mini-line{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.48);margin-top:22px}
+.problem-cards,.service-grid,.split-cards,.snapshot-grid,.faq-grid{display:grid;gap:18px;margin-top:34px}
+.problem-cards,.faq-grid{grid-template-columns:repeat(3,1fr)}
+.service-grid{grid-template-columns:repeat(2,1fr)}
+.split-cards,.snapshot-grid{grid-template-columns:repeat(2,1fr)}
+.problem-card,.split-card,.snapshot-card,.faq-item{background:#fff;border:1px solid var(--border);padding:26px;text-decoration:none;color:inherit}
+.problem-card{border-top:3px solid var(--navy)}
+.problem-card:hover,.split-card:hover,.snapshot-card:hover{border-top-color:var(--rust)}
+.problem-card h3,.split-card h3,.snapshot-card h3,.faq-item h3{font-family:var(--display);font-size:22px;line-height:1.22;margin-bottom:10px}
+.problem-card p,.split-card p,.snapshot-card p,.faq-item p{font-size:15px;color:var(--muted);line-height:1.65}
+.center-cta{margin-top:34px}
+.split-card{border-top:3px solid var(--navy);min-height:260px}
+.split-card .text-link{display:inline-block;margin-top:18px;color:var(--rust)}
+.service-card p{margin-top:18px}
+.service-meta{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;line-height:1.5}
+.snapshot-grid{grid-template-columns:repeat(3,1fr)}
+.snapshot-card{border-left:3px solid var(--rust)}
+.faq-item{border-left:3px solid var(--navy)}
+.problem-block{background:#fff;border:1px solid var(--border);border-left:4px solid var(--navy);padding:34px;margin-bottom:26px}
+.problem-block h2{font-family:var(--display);font-size:30px;line-height:1.2;margin-bottom:18px}
+.problem-block h3{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--rust);margin:24px 0 8px}
+.problem-block p{color:#3d3d3d;margin-bottom:12px}
+.problem-block ul{margin-left:20px;color:#3d3d3d}
+.problem-block li{margin-bottom:8px}
+.portrait-img{width:152px;height:152px;object-fit:cover;object-position:center;border-radius:4px;border:3px solid var(--navy);display:block;margin-bottom:24px}
+.text-link{color:var(--rust);font-weight:500}
+.dark-band .price-box{background:rgba(255,255,255,.08);color:rgba(255,255,255,.78)}
+.dark-band .price-box p{color:rgba(255,255,255,.78)}
+@media(max-width:1100px){.nav{padding-left:22px;padding-right:22px}.links{gap:16px}.links a,.navcta{font-size:10px}.logo img{max-width:210px}}
+@media(max-width:960px){.problem-cards,.service-grid,.split-cards,.snapshot-grid,.faq-grid{grid-template-columns:1fr}.nav{padding-left:22px;padding-right:22px}}
