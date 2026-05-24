@@ -29,5 +29,8 @@
 .text-link{color:var(--rust);font-weight:500}
 .dark-band .price-box{background:rgba(255,255,255,.08);color:rgba(255,255,255,.78)}
 .dark-band .price-box p{color:rgba(255,255,255,.78)}
-@media(max-width:1100px){.nav{padding-left:22px;padding-right:22px}.links{gap:16px}.links a,.navcta{font-size:10px}.logo img{max-width:210px}}
+.logo,.footer-logo{background-image:url('Keystone_Logo.svg');background-repeat:no-repeat;background-position:left center;background-size:contain;min-width:246px;min-height:44px}
+.logo img,.footer-logo img{opacity:0}
+.footer-logo{min-width:230px}
+@media(max-width:1100px){.nav{padding-left:22px;padding-right:22px}.links{gap:16px}.links a,.navcta{font-size:10px}.logo img{max-width:210px}.logo{min-width:210px}}
 @media(max-width:960px){.problem-cards,.service-grid,.split-cards,.snapshot-grid,.faq-grid{grid-template-columns:1fr}.nav{padding-left:22px;padding-right:22px}}
