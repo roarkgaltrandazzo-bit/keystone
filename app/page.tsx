@@ -14,9 +14,9 @@ export default function Home() {
             <p className="eyebrow eyebrow-orange">Service program advisory for commercial mechanical contractors</p>
             <h1>Your maintenance base should be doing more for the business.</h1>
             <p className="hero-subhead">
-              Keystone helps $3M–$15M commercial mechanical contractors strengthen service agreements,
-              capture more of the repair and replacement work their technicians uncover, and build recurring
-              revenue that makes the company more valuable.
+              Keystone helps $3M–$15M commercial mechanical contractors turn their maintenance base into stronger
+              agreements, more of the repair work their techs already find, and recurring revenue that raises what
+              the company is worth.
             </p>
             <div className="button-row">
               <a className="button button-accent" href="/book">
@@ -27,7 +27,7 @@ export default function Home() {
               </a>
             </div>
             <div className="hero-proof">
-              <span>Operating experience inside</span>
+              <span>Trained inside the service organizations you compete against</span>
               <div>
                 <strong>Bassett Mechanical</strong>
                 <i />
@@ -49,29 +49,29 @@ export default function Home() {
         <div className="shell split split-wide">
           <SectionHeading
             eyebrow="Where value leaks"
-            title="Too much opportunity disappears between the PM visit and the customer decision."
-            copy="The work is already passing through service. Most shops just cannot see every handoff clearly enough to manage it."
+            title="Most of the money you're missing is already inside your service department."
+            copy="The work is coming through. Techs are on-site, finding problems and building relationships. The leaks happen in the handoffs nobody owns, and those are hard to see until you go looking."
           />
           <div className="leak-list">
             <article>
               <span>01</span>
-              <p>Agreement revenue grows, but nobody can confidently state the margin by account.</p>
+              <p>Agreement revenue keeps growing, but nobody can tell you the margin on any single account.</p>
             </article>
             <article>
               <span>02</span>
-              <p>Technicians find work that never makes it into a timely, customer-ready quote.</p>
+              <p>Techs find real repair work that never turns into a quote the customer actually sees.</p>
             </article>
             <article>
               <span>03</span>
-              <p>Repair quotes sit without clear follow-up ownership or reliable visibility.</p>
+              <p>Quotes go out and then sit: no owner, no follow-up, no visibility.</p>
             </article>
             <article>
               <span>04</span>
-              <p>Renewals happen without a deliberate price review, account plan or expansion decision.</p>
+              <p>Renewals go through at last year&apos;s price, with no account review and no expansion conversation.</p>
             </article>
             <article>
               <span>05</span>
-              <p>The owner still carries too much of the service-selling and pricing logic.</p>
+              <p>You&apos;re still the person who prices the hard jobs and closes the big ones.</p>
             </article>
           </div>
         </div>
@@ -81,13 +81,13 @@ export default function Home() {
         <div className="shell">
           <SectionHeading
             eyebrow="The service economics"
-            title="The maintenance agreement is the beginning of the economics."
-            copy="Agreements create access and base load. The commercial system determines how much of the value uncovered during that access becomes revenue, margin and retention."
+            title="The agreement gets you in the door. The money is in what happens next."
+            copy="A maintenance agreement buys you access and a base of recurring work. What you do with that access, including the repairs you catch, the prices you hold and the renewals you win, decides how much becomes profit."
             light
           />
           <ServiceFlow />
           <p className="flow-note">
-            Most shops do not need another lead source before they fix what happens to the opportunities already passing through service.
+            Before you go buy more leads, fix what happens to the opportunities you already have.
           </p>
         </div>
       </section>
@@ -99,9 +99,9 @@ export default function Home() {
           </div>
           <div className="assessment-copy">
             <p className="eyebrow">The paid entry engagement</p>
-            <h2>Measure the service program before changing it.</h2>
+            <h2>Measure the service program before you start changing it.</h2>
             <p>
-              The Service Program Assessment is a three-week review of how your service business performs across eight weighted dimensions.
+              The Service Program Assessment is a three-week review of how your service business actually performs, scored across eight weighted areas.
             </p>
             <div className="deliverable-list">
               <div><span>01</span><strong>Service Program Scorecard</strong></div>
@@ -121,8 +121,8 @@ export default function Home() {
         <div className="shell">
           <SectionHeading
             eyebrow="What gets scored"
-            title="Eight parts of the service business. One operating picture."
-            copy="The weighting puts most of the emphasis where the economics are created. The maintenance base and the work converted from it account for 38% of the score."
+            title="Eight parts of the service business, weighted toward where the money is made."
+            copy="The heaviest weight sits where profit is created. Your recurring base and the repair work you convert from it make up 38% of the score."
           />
           <DimensionGrid />
           <div className="centered-action">
@@ -137,9 +137,9 @@ export default function Home() {
         <div className="shell playbook-grid">
           <div>
             <p className="eyebrow eyebrow-orange">The operating background</p>
-            <h2>The useful parts of the OEM service playbook, sized for an independent shop.</h2>
+            <h2>The parts of the OEM playbook that work, sized for an independent shop.</h2>
             <p className="large-copy">
-              I have worked inside the kinds of service organizations independent contractors compete against. Keystone applies the disciplines that transfer and leaves behind the layers that do not.
+              You&apos;re up against companies that run tiered agreements, renewal calendars and pull-through tracking as standard practice. Keystone brings those same disciplines into your shop and leaves behind the enterprise weight that makes them useless at your size.
             </p>
           </div>
           <div className="transfer-table">
@@ -150,7 +150,7 @@ export default function Home() {
                 <li>Renewal calendars</li>
                 <li>Pull-through tracking</li>
                 <li>Pricing and margin controls</li>
-                <li>Defined service-selling roles</li>
+                <li>Clear service-selling roles</li>
                 <li>Connected-service strategy</li>
               </ul>
             </div>
@@ -159,10 +159,10 @@ export default function Home() {
               <ul>
                 <li>Enterprise bureaucracy</li>
                 <li>Layers of management</li>
-                <li>Bloated technology stacks</li>
+                <li>Bloated tech stacks</li>
                 <li>National-account complexity</li>
-                <li>Reporting for its own sake</li>
-                <li>Programs the field cannot support</li>
+                <li>Reports nobody reads</li>
+                <li>Programs the field cannot actually run</li>
               </ul>
             </div>
           </div>
@@ -173,26 +173,26 @@ export default function Home() {
         <div className="shell">
           <SectionHeading
             eyebrow="What comes next"
-            title="Know what to fix first, what it should be worth and whether you want help building it."
+            title="Know what to fix first, what it's worth and whether you want help building it."
           />
           <div className="stage-grid">
             <article>
               <span>01</span>
               <p className="stage-label">Assess</p>
-              <h3>See the current program clearly.</h3>
-              <p>Score the operation, identify the gaps and quantify the opportunity.</p>
+              <h3>See the program clearly.</h3>
+              <p>Score the operation, find the gaps and put a number on the opportunity.</p>
             </article>
             <article>
               <span>02</span>
               <p className="stage-label">Build</p>
               <h3>Put the commercial mechanics in place.</h3>
-              <p>Develop agreement tiers, pricing tools, technician workflows, renewal processes and scorecards.</p>
+              <p>Agreement tiers, pricing tools, tech workflows, renewal process and scorecards.</p>
             </article>
             <article>
               <span>03</span>
               <p className="stage-label">Run</p>
               <h3>Keep the system working.</h3>
-              <p>Establish the service sales cadence, ownership and leadership needed to sustain it.</p>
+              <p>The cadence, ownership and leadership that keep the system running after I&apos;m gone.</p>
             </article>
           </div>
         </div>
@@ -202,29 +202,29 @@ export default function Home() {
         <div className="shell fit-grid">
           <div>
             <p className="eyebrow">Who this is for</p>
-            <h2>Built for a specific kind of contractor.</h2>
+            <h2>Built for one kind of contractor.</h2>
             <p className="large-copy dark-copy">
-              The narrower the fit, the more useful the work. Keystone is designed around independent commercial mechanical contractors whose service business has outgrown informal management.
+              The tighter the fit, the more useful the work. Keystone is built for independent commercial mechanical contractors whose service business has outgrown the way it&apos;s currently run.
             </p>
           </div>
           <div className="fit-columns">
             <article className="fit-card fit-card-positive">
               <p>Likely fit</p>
               <ul>
-                <li>Primarily commercial or industrial HVAC</li>
+                <li>Mostly commercial or industrial HVAC</li>
                 <li>Roughly $3M–$15M in revenue</li>
-                <li>Has an agreement base or is building one</li>
-                <li>Owner remains central to service growth</li>
+                <li>Has an agreement base, or is serious about building one</li>
+                <li>Owner is still central to service growth</li>
                 <li>Wants stronger recurring revenue and pull-through</li>
               </ul>
             </article>
             <article className="fit-card">
               <p>Probably not a fit</p>
               <ul>
-                <li>Primarily residential home service</li>
-                <li>Looking only for leads or appointment setting</li>
-                <li>Wants to outsource all responsibility for selling</li>
-                <li>Will not provide operating or financial data</li>
+                <li>Mostly residential home service</li>
+                <li>Just wants leads or appointment setting</li>
+                <li>Wants to hand off all responsibility for selling</li>
+                <li>Won&apos;t share operating or financial data</li>
                 <li>Needs general management consulting</li>
               </ul>
             </article>
@@ -243,12 +243,9 @@ export default function Home() {
           </div>
           <div>
             <p className="eyebrow">Built by an operator</p>
-            <h2>I have carried the number and run the operation.</h2>
+            <h2>I&apos;ve carried the number and run the operation.</h2>
             <p className="large-copy dark-copy">
-              I have spent twenty years selling, leading field teams and owning commercial results inside Johnson Controls, Carrier, Bassett Mechanical and the Linc Network.
-            </p>
-            <p>
-              Keystone translates what the larger service organizations do well into a system an independent contractor can actually use.
+              Twenty years selling, leading field teams and owning P&amp;L results in commercial mechanical service. Keystone takes what the big service organizations do well and turns it into a system a shop your size can actually run.
             </p>
             <a className="text-link" href="/about">
               Read Tom&apos;s Background <span>→</span>

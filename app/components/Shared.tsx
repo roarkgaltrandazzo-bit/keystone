@@ -41,10 +41,10 @@ export function DimensionGrid({ detailed = false }: { detailed?: boolean }) {
 export function ServiceFlow() {
   const steps = [
     ["01", "Agreement", "Recurring base load"],
-    ["02", "Technician visit", "Customer and equipment access"],
-    ["03", "Captured finding", "A clear commercial handoff"],
-    ["04", "Repair or replacement", "Work converted and delivered"],
-    ["05", "Stronger renewal", "Retention and account expansion"],
+    ["02", "Tech visit", "Access to the customer and the equipment"],
+    ["03", "Captured finding", "A clean handoff to a quote"],
+    ["04", "Repair or replacement", "Work won and delivered"],
+    ["05", "Stronger renewal", "The account stays and grows"],
   ];
 
   return (
@@ -64,8 +64,8 @@ export function ServiceFlow() {
 }
 
 export function FinalCta({
-  title = "Find out what your service program is capable of producing.",
-  copy = "A focused conversation is enough to determine whether the assessment makes sense for your shop.",
+  title = "Find out what your service program could actually be producing.",
+  copy = "One call is enough to tell whether the assessment is worth your time and money.",
 }: {
   title?: string;
   copy?: string;

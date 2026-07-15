@@ -1,43 +1,35 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent } from "react";
 
 type InquiryFormProps = {
   subject?: string;
 };
 
 export function InquiryForm({ subject = "Keystone Service Program Fit Call Inquiry" }: InquiryFormProps) {
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
-
-  async function submitForm(event: FormEvent<HTMLFormElement>) {
+  function prepareEmail(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const form = event.currentTarget;
-    const data = new FormData(form);
-    setStatus("sending");
+    const data = new FormData(event.currentTarget);
+    const value = (name: string) => String(data.get(name) ?? "").trim();
+    const body = [
+      `Name: ${value("name")}`,
+      `Email: ${value("email")}`,
+      `Company: ${value("company")}`,
+      `Company website: ${value("company_website") || "Not provided"}`,
+      `Annual revenue: ${value("revenue_range")}`,
+      `Service technicians: ${value("service_technicians")}`,
+      `Current agreement base: ${value("current_agreement_base")}`,
+      `Service versus construction mix: ${value("service_construction_mix") || "Not provided"}`,
+      "",
+      "What is prompting the conversation now?",
+      value("prompting_the_conversation"),
+    ].join("\n");
 
-    try {
-      const response = await fetch("https://formsubmit.co/ajax/tom@keystonecommercialpartners.com", {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: data,
-      });
-
-      if (!response.ok) throw new Error("Form submission failed");
-      form.reset();
-      setStatus("success");
-    } catch {
-      setStatus("error");
-    }
+    window.location.href = `mailto:tom@keystonecommercialpartners.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 
   return (
-    <form className="form-card" onSubmit={submitForm}>
-      <input type="hidden" name="_subject" value={subject} />
-      <input type="hidden" name="_template" value="table" />
-      <div className="honeypot" aria-hidden="true">
-        <label htmlFor="website-confirmation">Leave this field blank</label>
-        <input id="website-confirmation" name="_honey" tabIndex={-1} autoComplete="off" />
-      </div>
+    <form className="form-card" onSubmit={prepareEmail}>
       <div className="form-grid">
         <div className="field">
           <label htmlFor="name">Name</label>
@@ -103,16 +95,10 @@ export function InquiryForm({ subject = "Keystone Service Program Fit Call Inqui
         </div>
       </div>
       <div className="form-actions">
-        <button className="button button-accent" type="submit" disabled={status === "sending"}>
-          {status === "sending" ? "Sending…" : "Request the Fit Call"}
+        <button className="button button-accent" type="submit">
+          Open Email to Request the Fit Call
         </button>
-        {status === "idle" ? <p className="form-note">Tom replies directly. No automated sales sequence.</p> : null}
-        {status === "success" ? <p className="form-status form-status-success">Received. Tom will follow up directly.</p> : null}
-        {status === "error" ? (
-          <p className="form-status form-status-error">
-            The form did not send. Email tom@keystonecommercialpartners.com instead.
-          </p>
-        ) : null}
+        <p className="form-note">Tom replies personally. Your email app opens before anything is sent. No automated sales sequence or drip emails.</p>
       </div>
     </form>
   );

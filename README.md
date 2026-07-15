@@ -38,7 +38,7 @@ The workflow in `.github/workflows/pages.yml` installs the locked dependencies, 
 
 ## Forms
 
-The fit-call and self-score forms submit to the existing Keystone FormSubmit endpoint. If the destination address has not already been verified with FormSubmit, the first submission will trigger its confirmation email.
+The fit-call form prepares a direct email in the visitor's email app. Nothing is sent until the visitor presses send. The self-score is calculated locally in the browser and does not collect or transmit answers.
 
 ## Content and design
 

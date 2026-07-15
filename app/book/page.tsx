@@ -15,9 +15,9 @@ export default function BookPage() {
         <div className="shell form-layout">
           <div className="form-intro">
             <p className="eyebrow">30-minute fit conversation</p>
-            <h1>Bring the service question you cannot answer cleanly.</h1>
+            <h1>Bring the service question you can&apos;t answer cleanly.</h1>
             <p>
-              This is a working conversation about your shop, the questions you need answered and whether the Service Program Assessment is the right first step.
+              A working conversation about your shop, the questions you need answered and whether the Service Program Assessment is the right first step.
             </p>
             <div className="conversation-points">
               <div><span>01</span><strong>What is happening inside the service business</strong></div>

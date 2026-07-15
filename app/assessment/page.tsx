@@ -9,38 +9,38 @@ export const metadata: Metadata = {
 };
 
 const triggers = [
-  "Agreement revenue has grown, but profitability is unclear.",
-  "Technicians find work that is not consistently captured.",
-  "Service pricing has accumulated years of exceptions.",
-  "The owner is still the department's primary service salesperson.",
-  "The company wants more recurring revenue before hiring, expanding or selling.",
-  "The business is considering BAS or connected-service offerings.",
+  "Agreement revenue is up, but you cannot tell if it is profitable.",
+  "Techs find work that does not consistently make it to a quote.",
+  "Service pricing has picked up years of one-off exceptions.",
+  "You are still the department's main service salesperson.",
+  "You want more recurring revenue before you hire, expand or sell.",
+  "You are weighing BAS or connected-service offerings.",
 ];
 
 const deliverables = [
   {
     title: "Service Program Scorecard",
-    copy: "An evidence-backed score across eight dimensions, with the operating facts behind each rating.",
+    copy: "An evidence-backed score across all eight areas, with the operating facts behind each rating.",
   },
   {
     title: "Owner Summary",
-    copy: "A plainspoken explanation of what is working, what is leaking value and what requires attention.",
+    copy: "A straight-talk read on what is working, what is leaking and what needs attention.",
   },
   {
     title: "Three-Scenario Impact Model",
-    copy: "Conservative, expected and upside scenarios for incremental revenue, EBITDA and indicative enterprise value.",
+    copy: "Conservative, expected and upside cases for added revenue, EBITDA and indicative enterprise value.",
   },
   {
     title: "90-Day Priorities",
-    copy: "The few actions that should happen first, with the order, ownership and expected operating effect made clear.",
+    copy: "The handful of moves to make first, in order, with owners and expected effect.",
   },
 ];
 
 const inputs = [
-  "Current agreement or PSA list",
-  "Agreement renewal history",
+  "Current agreement/PSA list",
+  "Renewal history",
   "Service revenue by work type",
-  "Technician count and utilization data",
+  "Tech count and utilization",
   "Sample agreements and dispatch records",
   "Repair quotes and follow-up records",
   "Current pricing methods",
@@ -54,9 +54,9 @@ export default function AssessmentPage() {
         <div className="shell page-hero-grid">
           <div>
             <p className="eyebrow eyebrow-orange">Service Program Assessment</p>
-            <h1>See how the service program performs and what the gaps are worth.</h1>
+            <h1>See how the service program performs, and what the gaps are worth.</h1>
             <p className="hero-subhead">
-              A three-week assessment built for commercial mechanical contractors who want a more deliberate agreement base, stronger pull-through and clearer service economics.
+              A three-week assessment for commercial mechanical contractors who want a stronger agreement base, better pull-through and service economics they can actually see.
             </p>
             <div className="button-row">
               <a className="button button-accent" href="/book">
@@ -86,8 +86,8 @@ export default function AssessmentPage() {
         <div className="shell">
           <SectionHeading
             eyebrow="When it makes sense"
-            title="The assessment is built for the questions owners can feel but cannot answer cleanly."
-            copy="You do not need to know exactly what is wrong before starting. These are the conditions that usually prompt the work."
+            title="Built for the problems owners can feel but can't quite name."
+            copy="You don't have to know what's wrong before you start. These are the situations that usually bring owners in."
           />
           <div className="trigger-grid">
             {triggers.map((trigger, index) => (
@@ -104,8 +104,8 @@ export default function AssessmentPage() {
         <div className="shell">
           <SectionHeading
             eyebrow="What gets reviewed"
-            title="The score is weighted toward what moves the service economics."
-            copy="Each dimension is scored from operating evidence, not a management team's opinion of itself. Publishing the weights makes the instrument transparent."
+            title="The score is weighted toward what actually moves the economics."
+            copy="Every area is scored from your operating evidence, not from how the team feels the business is doing. The weights are published on purpose, so you can see exactly how you're being graded."
           />
           <DimensionGrid detailed />
         </div>
@@ -116,23 +116,23 @@ export default function AssessmentPage() {
           <SectionHeading
             eyebrow="How the work runs"
             title="Three weeks from intake to owner readout."
-            copy="The assessment is contained by design. It should create clarity without turning into an open-ended consulting project."
+            copy="The engagement is deliberately contained. It's built to give you clarity, not to turn into an open-ended consulting project."
           />
           <div className="process-timeline">
             <article>
               <span>Week 01</span>
               <h3>Map the current program.</h3>
-              <p>Data collection, owner interview, document review and a working map of how agreements and service opportunities currently move.</p>
+              <p>Data collection, an owner interview, document review and a working map of how agreements and opportunities move today.</p>
             </article>
             <article>
               <span>Week 02</span>
               <h3>Score and model it.</h3>
-              <p>Operating interviews, evidence review, dimension scoring and development of conservative, expected and upside scenarios.</p>
+              <p>Operating interviews, evidence review, dimension scoring and conservative-to-upside scenarios.</p>
             </article>
             <article>
               <span>Week 03</span>
               <h3>Make the decisions.</h3>
-              <p>Owner summary, 90-day priorities and a direct executive readout focused on what is worth fixing first.</p>
+              <p>Owner summary, 90-day priorities and a direct executive readout on what to fix first.</p>
             </article>
           </div>
         </div>
@@ -142,8 +142,8 @@ export default function AssessmentPage() {
         <div className="shell">
           <SectionHeading
             eyebrow="What you receive"
-            title="Useful outputs whether Keystone helps implement them or not."
-            copy="The assessment is a paid diagnostic with a defined end. You own the findings, model and roadmap."
+            title="Outputs you keep, whether or not Keystone implements them."
+            copy="This is a paid diagnostic with a defined end. The findings, the model and the roadmap are yours."
           />
           <div className="deliverables-grid">
             {deliverables.map((item, index) => (
@@ -161,15 +161,15 @@ export default function AssessmentPage() {
         <div className="shell impact-model">
           <div>
             <p className="eyebrow eyebrow-orange">The Impact Model</p>
-            <h2>Translate operating gaps into economic decisions.</h2>
+            <h2>Turn operating gaps into decisions you can price.</h2>
             <p className="large-copy">
-              The model does not turn assumptions into promises. It makes the assumptions visible, shows what would have to change and gives the owner a rational range for deciding what the work is worth.
+              The model doesn&apos;t dress assumptions up as promises. It puts every assumption on the table, shows what would have to change and gives you an honest range for deciding whether the work is worth doing.
             </p>
           </div>
           <div className="formula-board" aria-label="Impact model components">
             <div className="formula-row"><span>+</span><div><strong>Agreement growth</strong><small>New and expanded recurring revenue</small></div></div>
             <div className="formula-row"><span>+</span><div><strong>Pull-through improvement</strong><small>More identified work reaching a customer decision</small></div></div>
-            <div className="formula-row"><span>+</span><div><strong>Pricing correction</strong><small>Margin recovered through deliberate agreement pricing</small></div></div>
+            <div className="formula-row"><span>+</span><div><strong>Pricing correction</strong><small>Margin recovered through agreement pricing</small></div></div>
             <div className="formula-row"><span>−</span><div><strong>Required capacity</strong><small>Labor, tools and operating cost needed to support the change</small></div></div>
             <div className="formula-row"><span>=</span><div><strong>Incremental EBITDA range</strong><small>Applied to an owner-approved multiple for an indicative value range</small></div></div>
           </div>
@@ -180,8 +180,8 @@ export default function AssessmentPage() {
         <div className="shell split">
           <SectionHeading
             eyebrow="Required inputs"
-            title="The assessment needs the real service picture."
-            copy="Perfect reporting is not required. If the information exists across spreadsheets, accounting reports and people's heads, we can work with it."
+            title="It needs the real service picture, not a perfect one."
+            copy="You don't need clean reporting. If the information lives across spreadsheets, accounting exports and people's heads, we can work with that."
           />
           <div className="inputs-list">
             {inputs.map((input, index) => (
@@ -203,9 +203,9 @@ export default function AssessmentPage() {
             </div>
             <div>
               <p className="eyebrow">Limited first cohort</p>
-              <h3>Flat fee. Clear scope. No hourly drift.</h3>
+              <h3>Flat fee. Fixed scope. No hourly drift.</h3>
               <p>
-                Available to the first five participating contractors in exchange for deeper operating access, candid feedback and permission to use anonymized findings in Keystone&apos;s aggregate benchmark data.
+                Open to the first five contractors, in exchange for deeper operating access, honest feedback and permission to use anonymized findings in Keystone&apos;s benchmark data.
               </p>
               <a className="button button-dark" href="/book">
                 Discuss the Assessment
@@ -220,36 +220,36 @@ export default function AssessmentPage() {
         <div className="shell split">
           <SectionHeading
             eyebrow="Common questions"
-            title="Know what this is before you buy it."
+            title="Know exactly what this is before you buy it."
           />
           <div className="faq-list">
             <details>
               <summary>Is this a sales audit?</summary>
-              <p>No. Sales is one part of the review. The assessment looks at the full service program, including agreement economics, field opportunity capture, renewal, utilization and connected service.</p>
+              <p>No. Sales is one piece. The assessment covers the whole service program, including agreement economics, field capture, renewal, utilization and connected service.</p>
             </details>
             <details>
-              <summary>Do we need a large agreement base?</summary>
-              <p>No. The assessment can help a contractor with an established base or one deliberately building its first scalable program. The questions and evidence change with the starting point.</p>
+              <summary>Do we need a big agreement base?</summary>
+              <p>No. It works for a shop with an established base or one building its first real program. The questions change with where you&apos;re starting.</p>
             </details>
             <details>
-              <summary>How much owner time is required?</summary>
-              <p>Plan on an initial working session, limited follow-up during analysis and the final readout. Other leaders may be interviewed where their operating view matters.</p>
+              <summary>How much of my time will it take?</summary>
+              <p>An initial working session, some light follow-up during analysis and the final readout. I&apos;ll interview other leaders where their view matters.</p>
             </details>
             <details>
-              <summary>Do we have to hire Keystone for implementation?</summary>
-              <p>No. The assessment and roadmap stand on their own. If implementation support makes sense, it is scoped separately after both sides understand the work.</p>
+              <summary>Do we have to hire Keystone to implement?</summary>
+              <p>No. The assessment and roadmap stand on their own. If implementation help makes sense, it&apos;s scoped separately once we both understand the work.</p>
             </details>
             <details>
               <summary>Is the Impact Model a business valuation?</summary>
-              <p>No. It is an operating scenario model. It estimates the effect of specific improvements using transparent assumptions. It is not a formal valuation or appraisal.</p>
+              <p>No. It&apos;s an operating scenario model. It estimates the effect of specific improvements using transparent assumptions. It&apos;s not a formal valuation or appraisal.</p>
             </details>
           </div>
         </div>
       </section>
 
       <FinalCta
-        title="Measure the service program before spending money to change it."
-        copy="The fit call is a direct conversation about the shop, the questions you need answered and whether the assessment is the right first step."
+        title="Measure the program before you spend money changing it."
+        copy="The fit call is a straight conversation about your shop, the questions you need answered and whether the assessment is the right first move."
       />
     </PageShell>
   );

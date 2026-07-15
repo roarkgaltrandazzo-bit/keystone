@@ -6,7 +6,7 @@ type ScorecardProps = {
 };
 
 export function Scorecard({ compact = false, eyebrow = "Example assessment output" }: ScorecardProps) {
-  const score = 61;
+  const score = 68;
 
   return (
     <div className={`scorecard ${compact ? "scorecard-compact" : ""}`}>
@@ -24,7 +24,7 @@ export function Scorecard({ compact = false, eyebrow = "Example assessment outpu
         <div>
           <p className="score-label">Service Program Score</p>
           <h3>Working program. Uneven capture.</h3>
-          <p>Strong customer access with preventable value loss between the field and the commercial process.</p>
+          <p>Strong customer access, but too much value slips out between the truck and the invoice.</p>
         </div>
       </div>
       <div className="score-bars">
@@ -41,7 +41,7 @@ export function Scorecard({ compact = false, eyebrow = "Example assessment outpu
           </div>
         ))}
       </div>
-      <p className="scorecard-note">Illustrative layout. Paid assessments use actual operating data.</p>
+      <p className="scorecard-note">Illustrative layout. Paid assessments use your actual operating data.</p>
     </div>
   );
 }

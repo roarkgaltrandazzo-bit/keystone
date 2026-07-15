@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { serviceDimensions } from "../data";
 
 type Option = { label: string; value: number };
@@ -13,7 +13,7 @@ type Question = {
 const questions: Question[] = [
   {
     dimension: "recurring",
-    prompt: "How clearly can you see the recurring revenue and gross margin produced by each service agreement?",
+    prompt: "Can you see the recurring revenue and gross margin produced by each service agreement?",
     options: [
       { label: "We cannot see either reliably", value: 0 },
       { label: "We can see agreement revenue, but not reliable margin", value: 1 },
@@ -23,7 +23,7 @@ const questions: Question[] = [
   },
   {
     dimension: "recurring",
-    prompt: "How deliberately is the agreement base used to plan technician staffing and seasonal base load?",
+    prompt: "How is the agreement base used to plan technician staffing and seasonal workload?",
     options: [
       { label: "It is not connected to staffing decisions", value: 0 },
       { label: "We use rough experience and seasonal judgment", value: 1 },
@@ -78,7 +78,7 @@ const questions: Question[] = [
       { label: "A customized task list and price", value: 0 },
       { label: "A basic PM option with occasional add-ons", value: 1 },
       { label: "Multiple options, though the value difference is not always clear", value: 2 },
-      { label: "Clearly differentiated tiers tied to customer outcomes and risk", value: 3 },
+      { label: "Defined tiers tied to customer outcomes and risk", value: 3 },
     ],
   },
   {
@@ -93,7 +93,7 @@ const questions: Question[] = [
   },
   {
     dimension: "renewal",
-    prompt: "How far ahead of expiration does a deliberate renewal process normally begin?",
+    prompt: "How far ahead of expiration does your renewal process normally begin?",
     options: [
       { label: "At expiration or when invoicing forces the issue", value: 0 },
       { label: "Within 30 days", value: 1 },
@@ -125,7 +125,7 @@ const questions: Question[] = [
     dimension: "sales",
     prompt: "How visible are open service quotes, next steps, close rate and aging to leadership?",
     options: [
-      { label: "They are not visible in one dependable place", value: 0 },
+      { label: "They are scattered across systems or reports", value: 0 },
       { label: "We can assemble the answer when needed", value: 1 },
       { label: "A report exists, though next steps or aging are uneven", value: 2 },
       { label: "Leadership reviews a trusted view on a defined cadence", value: 3 },
@@ -164,7 +164,6 @@ export default function SelfScore() {
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [finished, setFinished] = useState(false);
   const [unlocked, setUnlocked] = useState(false);
-  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "error">("idle");
 
   const dimensionScores = useMemo(() => {
     const grouped: Record<string, { total: number; count: number }> = {};
@@ -221,35 +220,6 @@ export default function SelfScore() {
     setUnlocked(false);
     setStep(0);
     setAnswers({});
-    setFormStatus("idle");
-  }
-
-  async function unlockResults(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const form = event.currentTarget;
-    const data = new FormData(form);
-    data.set("overall_score", String(overallScore));
-    data.set("score_band", band.title);
-    data.set("lowest_dimensions", lowestDimensions.map((dimension) => dimension.name).join(", "));
-    data.set(
-      "dimension_scores",
-      serviceDimensions.map((dimension) => `${dimension.name}: ${dimensionScores[dimension.key]}`).join(" | "),
-    );
-    data.set("_subject", "New Keystone Service Program Self-Score");
-    data.set("_template", "table");
-    setFormStatus("sending");
-
-    try {
-      const response = await fetch("https://formsubmit.co/ajax/tom@keystonecommercialpartners.com", {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: data,
-      });
-      if (!response.ok) throw new Error("Submission failed");
-      setUnlocked(true);
-    } catch {
-      setFormStatus("error");
-    }
   }
 
   if (!started) {
@@ -257,12 +227,12 @@ export default function SelfScore() {
       <section className="section self-score-shell">
         <div className="shell self-score-intro">
           <p className="eyebrow">Free directional self-score</p>
-          <h1>How strong is your service program?</h1>
+          <h1>How strong is your service program, really?</h1>
           <p>
-            Answer 12 operating questions and receive a directional score across agreements, pull-through, pricing, renewal, utilization and service sales.
+            Answer 12 quick questions and get a directional score across agreements, pull-through, pricing, renewal, utilization and service sales. Takes about five minutes.
           </p>
           <div className="self-score-meta">
-            <span>About three minutes</span>
+            <span>No email required to see your score</span>
             <span>No financial documents</span>
             <span>Directional, not diagnostic</span>
           </div>
@@ -339,33 +309,16 @@ export default function SelfScore() {
         </div>
 
         {!unlocked ? (
-          <form className="result-gate" onSubmit={unlockResults}>
+          <div className="result-gate">
             <p className="eyebrow">Get the full breakdown</p>
             <h3>See your eight dimension scores and two likely priorities.</h3>
-            <p>Enter your information to unlock the result on this screen and send the score to Keystone for follow-up.</p>
-            <div className="form-grid">
-              <div className="field">
-                <label htmlFor="score-name">Name</label>
-                <input id="score-name" name="name" autoComplete="name" required />
-              </div>
-              <div className="field">
-                <label htmlFor="score-email">Email</label>
-                <input id="score-email" name="email" type="email" autoComplete="email" required />
-              </div>
-              <div className="field field-full">
-                <label htmlFor="score-company">Company</label>
-                <input id="score-company" name="company" autoComplete="organization" required />
-              </div>
-            </div>
+            <p>Your score is above. The full breakdown is available here without an email address.</p>
             <div className="form-actions">
-              <button className="button button-accent" type="submit" disabled={formStatus === "sending"}>
-                {formStatus === "sending" ? "Sending…" : "Unlock My Breakdown"}
+              <button className="button button-accent" type="button" onClick={() => setUnlocked(true)}>
+                See My Full Breakdown
               </button>
-              {formStatus === "error" ? (
-                <p className="form-status form-status-error">The result could not send. Email Tom directly or try again.</p>
-              ) : null}
             </div>
-          </form>
+          </div>
         ) : (
           <div className="result-details">
             <p className="eyebrow">Your dimension breakdown</p>
