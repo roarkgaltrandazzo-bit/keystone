@@ -1,13 +1,21 @@
 import { primaryNavigation } from "../data";
 
-export function Brand() {
+/* The same native PNG assets are served by both the app and static Pages builds. */
+/* eslint-disable @next/next/no-img-element */
+
+export function Brand({ variant = "header" }: { variant?: "header" | "footer" }) {
+  const isFooter = variant === "footer";
+
   return (
     <a className="brand" href="/" aria-label="Keystone Commercial Partners home">
-      <span className="brand-mark" aria-hidden="true"><i /><i /><i /></span>
-      <span className="brand-lockup">
-        <span className="brand-word">KEYSTONE</span>
-        <span className="brand-descriptor">Commercial Partners</span>
-      </span>
+      <img
+        alt="Keystone Commercial Partners"
+        className={`brand-logo brand-logo-${variant}`}
+        height={isFooter ? 485 : 325}
+        loading={isFooter ? "lazy" : "eager"}
+        src={isFooter ? "/keystone-logo.png" : "/keystone-logo-header.png"}
+        width={1610}
+      />
     </a>
   );
 }
@@ -53,7 +61,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="shell footer-grid">
         <div>
-          <Brand />
+          <Brand variant="footer" />
           <p className="footer-positioning">
             Service program advisory for commercial and industrial mechanical contractors.
           </p>
