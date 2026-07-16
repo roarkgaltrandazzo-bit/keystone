@@ -9,7 +9,7 @@ const leakSignals = [
     value: "1,000",
     label: "handoffs a year",
     copy: "Ten techs finding two items a week creates 1,000 chances to win or lose the work.",
-    formula: "10 techs × 2 findings × 50 weeks",
+    formula: "Example: 10 techs × 2 findings × 50 weeks",
   },
   {
     value: "90+",

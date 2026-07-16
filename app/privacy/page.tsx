@@ -27,7 +27,7 @@ export default function PrivacyPage() {
             </details>
             <details open>
               <summary>Who receives it?</summary>
-              <p>Your email goes directly to Keystone Commercial Partners. No third-party form processor receives it, and Keystone does not sell submitted contact information.</p>
+              <p>Your email goes directly to Keystone Commercial Partners. No third-party form processor receives it, and Keystone doesn&apos;t sell submitted contact information.</p>
             </details>
             <details open>
               <summary>Questions or deletion requests</summary>
