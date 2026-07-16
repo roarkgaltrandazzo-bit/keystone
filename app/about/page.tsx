@@ -7,15 +7,10 @@ import { FinalCta, SectionHeading } from "../components/Shared";
 export const metadata: Metadata = {
   title: "About Tom Randazzo",
   description:
-    "Meet Tom Randazzo, a commercial HVAC operator with experience at Bassett Mechanical, Linc, Carrier, and Johnson Controls.",
+    "Meet Tom Randazzo, a commercial HVAC operator with experience at Carrier, Johnson Controls, and privately owned mechanical contractors.",
 };
 
 const career = [
-  {
-    label: "Contractor model",
-    company: "Bassett Mechanical / Linc Network",
-    copy: "Learned the model where agreements, tech capacity, customer access, and pull-through all live in one P&L.",
-  },
   {
     label: "Regional operator",
     company: "Carrier",
@@ -27,9 +22,9 @@ const career = [
     copy: "Led inside a service machine built on tiered agreements, connected buildings, account plans, and clear roles.",
   },
   {
-    label: "Independent-shop translation",
-    company: "Keystone Commercial Partners",
-    copy: "Now resizing those disciplines for owner-led contractors that need the rigor without the enterprise weight.",
+    label: "Owner-led environments",
+    company: "Privately Owned Mechanical Contractors",
+    copy: "Worked with owners and operating teams where customer fit, pricing, field capacity, and cash consequences show up fast.",
   },
 ];
 
@@ -41,10 +36,10 @@ export default function AboutPage() {
         <div className="shell page-hero-grid">
           <div>
             <p className="eyebrow eyebrow-orange">About Tom Randazzo</p>
-            <h1>Built inside the service organizations you’re competing against.</h1>
+            <h1>Commercial service experience from both sides of the market.</h1>
             <p className="hero-subhead">
-              Twenty years across Bassett Mechanical, Linc, Carrier, and Johnson Controls. I’ve sold the work, led
-              the teams, run the region, and owned the P&amp;L.
+              Twenty years across Carrier, Johnson Controls, and privately owned mechanical contractors. I’ve sold
+              the work, led the teams, run the region, and owned the P&amp;L.
             </p>
             <div className="button-row">
               <a className="button button-accent" href="/book">Book a fit call</a>

@@ -3058,6 +3058,10 @@ h2 {
   padding-right: 50px;
 }
 
+.career-grid-v2 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .career-grid-v2 article {
   min-height: 300px;
 }
@@ -3401,6 +3405,7 @@ h2 {
   .assessment-section-v2 .assessment-feature,
   .dimensions-intro,
   .about-teaser-v2,
+  .career-grid-v2,
   .self-score-start .self-score-intro,
   .form-section-v2 .form-layout {
     grid-template-columns: 1fr;

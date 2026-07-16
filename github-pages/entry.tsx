@@ -24,7 +24,7 @@ const routes: Record<string, { component: () => React.JSX.Element; title: string
   "/about": {
     component: AboutPage,
     title: "About Tom Randazzo | Keystone Commercial Partners",
-    description: "Commercial HVAC operating experience across Bassett, Linc, Carrier and Johnson Controls.",
+    description: "Commercial HVAC experience across Carrier, Johnson Controls and privately owned mechanical contractors.",
   },
   "/self-score": {
     component: SelfScorePage,

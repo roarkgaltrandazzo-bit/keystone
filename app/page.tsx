@@ -49,17 +49,6 @@ export default function Home() {
                 Self-score your shop
               </a>
             </div>
-            <div className="career-proof">
-              <span>Tom’s operating background</span>
-              <strong>Bassett Mechanical</strong>
-              <i />
-              <strong>Linc Network</strong>
-              <i />
-              <strong>Carrier</strong>
-              <i />
-              <strong>Johnson Controls</strong>
-              <small>Career history, not client endorsements.</small>
-            </div>
           </div>
           <div className="hero-instrument">
             <Scorecard compact />
@@ -169,8 +158,8 @@ export default function Home() {
             <p className="eyebrow eyebrow-orange">The OEM playbook, resized</p>
             <h2>Use the discipline. Skip the weight.</h2>
             <p className="large-copy">
-              Tier the offer. Price from cost. Track every finding. Start renewals 90+ days out. Those practices work at
-              JCI and Carrier, and they can work in a 15-tech shop without the layers, systems, or meetings.
+              Tier the offer. Price from cost. Track every finding. Start renewals 90+ days out. Large service
+              organizations run that discipline, and a 15-tech shop can run it without the layers, systems, or meetings.
             </p>
             <div className="playbook-rules">
               <div><span>01</span><strong>Tier the agreement around risk and outcomes.</strong></div>
@@ -182,35 +171,6 @@ export default function Home() {
           <div className="media-panel media-panel-rooftop">
             <img src="/commercial-rooftop.webp" alt="Large commercial rooftop HVAC installation at first light" />
             <div className="media-tag"><span>Transfer test</span><strong>Can a 15-tech shop run it Monday?</strong></div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section-paper about-teaser-section">
-        <div className="shell about-teaser about-teaser-v2">
-          <div className="portrait-frame">
-            <img src="/tom-randazzo.webp" alt="Tom Randazzo, founder of Keystone Commercial Partners" />
-            <div className="portrait-caption">
-              <strong>Tom Randazzo</strong>
-              <span>Founder, Keystone Commercial Partners</span>
-            </div>
-          </div>
-          <div>
-            <p className="eyebrow">Operator, not career consultant</p>
-            <h2>I’ve carried the number and owned the P&amp;L.</h2>
-            <p className="large-copy dark-copy">
-              Twenty years across Bassett Mechanical, Linc, Carrier, and Johnson Controls. I’ve sold the work, led the
-              teams, made the pricing calls, and answered for the result.
-            </p>
-            <div className="career-rail" aria-label="Tom Randazzo career history">
-              <span>Bassett / Linc</span><i />
-              <span>Carrier</span><i />
-              <span>Johnson Controls</span><i />
-              <span>Keystone</span>
-            </div>
-            <a className="text-link" href="/about">
-              Read Tom’s background <span>→</span>
-            </a>
           </div>
         </div>
       </section>
