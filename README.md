@@ -1,58 +1,50 @@
-# Keystone Commercial Partners Website
+# Keystone Commercial Partners
 
-Static single-page website for Keystone Commercial Partners.
+Website for Keystone's commercial and industrial HVAC service-program advisory practice.
 
-## What this is
+The site is built around one paid entry engagement, the Service Program Assessment, and one free mid-funnel tool, the 12-question Shop Self-Score.
 
-This repo contains the first deployable Keystone Commercial Partners homepage.
+## Public routes
 
-Positioning:
+- `/` homepage
+- `/assessment` paid assessment offer
+- `/self-score` interactive directional score
+- `/about` Tom Randazzo's operating background
+- `/book` qualified fit-call form
+- `/privacy` privacy notice
 
-> Commercial architecture for owner-led companies. Operating value today. Enterprise value at exit.
+## Local development
 
-The site is designed for owner-led companies that need stronger structure around sales process, pricing discipline, account management, pipeline visibility, commercial role clarity, owner independence, and enterprise value.
-
-## Files
-
-- `index.html` - main website
-- `privacy.html` - placeholder privacy page
-- `robots.txt` - crawler instructions
-- `sitemap.xml` - basic sitemap
-- `.github/workflows/pages.yml` - GitHub Pages deployment workflow
-
-## Local preview
-
-Open `index.html` in a browser, or run:
+Requires Node.js 22 or later.
 
 ```bash
-python3 -m http.server 8000
+npm ci
+npm run dev
 ```
 
-Then visit:
+## Validation
 
-```text
-http://localhost:8000
+```bash
+npm run lint
+npm run build
+npm run build:pages
 ```
 
-## GitHub Pages deployment
+`npm run build` creates the Vinext/Cloudflare artifact. `npm run build:pages` creates the static multi-page site in `dist-pages/` for GitHub Pages.
 
-This repo includes a GitHub Pages workflow. To enable it:
+## GitHub Pages
 
-1. Go to repository Settings.
-2. Open Pages.
-3. Under Build and deployment, choose GitHub Actions.
-4. The workflow will deploy the static site from the repo root.
+The workflow in `.github/workflows/pages.yml` installs the locked dependencies, runs the static build and deploys `dist-pages/`. The custom domain is preserved through `public/CNAME`.
 
-## Before launch
+## Forms
 
-Replace or confirm these items:
+The fit-call form prepares a direct email in the visitor's email app. Nothing is sent until the visitor presses send. The self-score is calculated locally in the browser and does not collect or transmit answers.
 
-- Final domain in `sitemap.xml` and `robots.txt`
-- Diagnostic CTA email address in `index.html`
-- Final privacy language in `privacy.html`
-- Any real case studies or proof points
-- Analytics, form handler, CRM, or calendar embed
+## Content and design
 
-## Notes
-
-This is intentionally simple: HTML, CSS, and a small mobile navigation script inside `index.html`. That keeps hosting cheap and GitHub Pages-friendly.
+- Audience: $3M–$15M commercial and industrial mechanical contractors
+- Primary conversion: book a 30-minute fit conversation
+- Secondary conversion: complete the free Shop Self-Score
+- Visual system: graphite and steel-blue instrument panels with a restrained orange status accent
+- Photography: custom, rights-safe commercial mechanical-room, rooftop and BAS imagery
+- Core framework: eight weighted service-program dimensions
