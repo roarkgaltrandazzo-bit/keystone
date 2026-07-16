@@ -96,9 +96,9 @@ export function InquiryForm({ subject = "Keystone Service Program Fit Call Inqui
       </div>
       <div className="form-actions">
         <button className="button button-accent" type="submit">
-          Open Email to Request the Fit Call
+          Draft my email to Tom
         </button>
-        <p className="form-note">Tom replies personally. Your email app opens before anything is sent. No automated sales sequence or drip emails.</p>
+        <p className="form-note">Your email app opens with the details filled in. Nothing sends until you hit Send. Tom replies personally.</p>
       </div>
     </form>
   );

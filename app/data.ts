@@ -13,72 +13,64 @@ export const serviceDimensions: ServiceDimension[] = [
     name: "Recurring Revenue Base",
     shortName: "Recurring base",
     weight: 20,
-    question: "How much steady base load do your agreements really produce?",
-    description:
-      "Agreement mix, revenue quality, density, growth and how much field capacity the base can reliably carry.",
+    question: "How much steady base load do the agreements produce?",
+    description: "Agreement mix, margin, density, growth, and the field capacity the base can carry.",
   },
   {
     key: "pullthrough",
     name: "Pull-Through Conversion",
     shortName: "Pull-through",
     weight: 18,
-    question: "When a tech finds work, how much of it gets won?",
-    description:
-      "How findings move from the truck to a quote, who owns each handoff and how much of the work you actually win.",
+    question: "When a tech finds work, how much gets quoted and won?",
+    description: "The path from field finding to owned quote, customer decision, and won work.",
   },
   {
     key: "pricing",
     name: "PSA Pricing and Margin",
     shortName: "PSA pricing",
     weight: 15,
-    question: "Are agreements priced from real costs, or from last year plus a bump?",
-    description:
-      "Labor assumptions, material recovery, escalation, exceptions and whether you can see performance account by account.",
+    question: "Is each PSA priced from cost, or last year plus a bump?",
+    description: "Labor, material recovery, escalation, exceptions, and account-level margin.",
   },
   {
     key: "tiers",
     name: "Service Tiers and Program Design",
     shortName: "Program design",
     weight: 12,
-    question: "Are customers buying a program, or a checklist of tasks?",
-    description:
-      "How the offer is packaged, what each tier includes and whether there is a real reason to buy up.",
+    question: "Are customers buying a program or a task list?",
+    description: "Clear tiers, a reason to buy up, and a value story beyond PM tasks.",
   },
   {
     key: "connected",
     name: "BAS-Enabled Service",
     shortName: "Connected service",
     weight: 12,
-    question: "Are your connected buildings actually surfacing service work?",
-    description:
-      "How controls, trend data and remote visibility turn into better outcomes and differentiated agreements.",
+    question: "Do connected buildings surface service work?",
+    description: "How controls, trends, and remote visibility change the offer and the workflow.",
   },
   {
     key: "renewal",
     name: "Renewal and Retention",
     shortName: "Renewal",
     weight: 10,
-    question: "Is renewal a real commercial decision, or just an invoice?",
-    description:
-      "Timing, account review, price changes, customer communication, retention risk and expansion planning.",
+    question: "Is renewal an account decision or just an invoice?",
+    description: "Timing, account review, price, retention risk, and expansion planning.",
   },
   {
     key: "utilization",
     name: "Technician Utilization",
     shortName: "Utilization",
     weight: 8,
-    question: "Does your agreement base support the field crew you are paying for?",
-    description:
-      "Base-load coverage, seasonal balance, productive hours and how agreement demand connects to staffing decisions.",
+    question: "Does the agreement base support the crew you’re carrying?",
+    description: "Base-load coverage, seasonal balance, productive hours, and staffing decisions.",
   },
   {
     key: "sales",
     name: "Service Sales Motion",
     shortName: "Sales motion",
     weight: 5,
-    question: "Who owns quotes, follow-up and account growth?",
-    description:
-      "Role clarity, quote visibility, follow-up discipline, account planning and how much still runs through you.",
+    question: "Who owns the quote after it goes out?",
+    description: "Role clarity, next steps, aging, close rate, account plans, and owner dependence.",
   },
 ];
 
@@ -96,5 +88,5 @@ export const exampleScores: Record<string, number> = {
 export const primaryNavigation = [
   { href: "/assessment", label: "Assessment" },
   { href: "/about", label: "About" },
-  { href: "/self-score", label: "Self-Score Your Shop" },
+  { href: "/self-score", label: "Self-score" },
 ];

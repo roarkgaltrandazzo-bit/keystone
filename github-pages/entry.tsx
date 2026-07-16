@@ -13,8 +13,8 @@ const pathname = window.location.pathname.replace(/\/$/, "") || "/";
 const routes: Record<string, { component: () => React.JSX.Element; title: string; description: string }> = {
   "/": {
     component: Home,
-    title: "Keystone Commercial Partners | Service Program Advisory",
-    description: "Service program advisory for commercial and industrial mechanical contractors.",
+    title: "Keystone Commercial Partners | HVAC Service Program Advisory",
+    description: "Service program advisory for $3M–$15M commercial and industrial HVAC contractors.",
   },
   "/assessment": {
     component: AssessmentPage,
@@ -28,8 +28,8 @@ const routes: Record<string, { component: () => React.JSX.Element; title: string
   },
   "/self-score": {
     component: SelfScorePage,
-    title: "Self-Score Your Service Program | Keystone Commercial Partners",
-    description: "Answer 12 operating questions and receive a directional service-program score.",
+    title: "Self-Score Your HVAC Service Program | Keystone Commercial Partners",
+    description: "Answer 12 questions and see eight directional service-program scores. No email required.",
   },
   "/book": {
     component: BookPage,

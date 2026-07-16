@@ -12,18 +12,18 @@ export default function PrivacyPage() {
       <section className="section section-paper">
         <div className="shell" style={{ maxWidth: 820 }}>
           <p className="eyebrow">Privacy</p>
-          <h1 style={{ fontSize: "clamp(3rem, 6vw, 5.8rem)" }}>Plain language privacy notice.</h1>
+          <h1 style={{ fontSize: "clamp(3rem, 6vw, 5.8rem)" }}>What stays in your browser. What doesn&apos;t.</h1>
           <p className="large-copy dark-copy">
-            The self-score runs in your browser and does not collect or transmit your answers. The fit-call form prepares an email in your email app, and nothing is sent until you choose to send it.
+            The self-score stays in your browser. The fit-call form drafts an email in your email app. Nothing sends until you hit Send.
           </p>
           <div className="faq-list" style={{ marginTop: 50 }}>
             <details open>
               <summary>What information is collected?</summary>
-              <p>If you send the prepared email, Keystone receives the name, email, company information, service-business details and context you chose to include.</p>
+              <p>If you send the drafted email, Keystone receives the contact and service-business details you chose to include.</p>
             </details>
             <details open>
               <summary>How is it used?</summary>
-              <p>To respond to your request and discuss whether the Service Program Assessment may be a fit. Keystone does not use your self-score answers because they never leave your browser.</p>
+              <p>To reply and decide whether the Service Program Assessment fits. Keystone can&apos;t use your self-score answers because they never leave your browser.</p>
             </details>
             <details open>
               <summary>Who receives it?</summary>

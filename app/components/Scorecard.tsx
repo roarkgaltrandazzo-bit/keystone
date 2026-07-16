@@ -23,8 +23,8 @@ export function Scorecard({ compact = false, eyebrow = "Example assessment outpu
         </div>
         <div>
           <p className="score-label">Service Program Score</p>
-          <h3>Working program. Uneven capture.</h3>
-          <p>Strong customer access, but too much value slips out between the truck and the invoice.</p>
+          <h3>Working base. Missed pull-through.</h3>
+          <p>The access is there. Handoffs, pricing, and follow-up are leaving margin behind.</p>
         </div>
       </div>
       <div className="score-bars">
@@ -41,7 +41,7 @@ export function Scorecard({ compact = false, eyebrow = "Example assessment outpu
           </div>
         ))}
       </div>
-      <p className="scorecard-note">Illustrative layout. Paid assessments use your actual operating data.</p>
+      <p className="scorecard-note">Illustrative only. Your assessment uses operating evidence.</p>
     </div>
   );
 }

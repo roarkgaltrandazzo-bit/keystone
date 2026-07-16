@@ -4,158 +4,136 @@ import { useMemo, useState } from "react";
 import { serviceDimensions } from "../data";
 
 type Option = { label: string; value: number };
-type Question = {
-  dimension: string;
-  prompt: string;
-  options: Option[];
-};
+type Question = { dimension: string; prompt: string; options: Option[] };
 
 const questions: Question[] = [
   {
     dimension: "recurring",
-    prompt: "Can you see the recurring revenue and gross margin produced by each service agreement?",
+    prompt: "Can you see revenue and gross margin by agreement?",
     options: [
-      { label: "We cannot see either reliably", value: 0 },
-      { label: "We can see agreement revenue, but not reliable margin", value: 1 },
-      { label: "We can see both, but do not review them consistently", value: 2 },
-      { label: "We review revenue, margin and account performance on a defined cadence", value: 3 },
+      { label: "No. Neither is reliable.", value: 0 },
+      { label: "We see revenue, but not reliable margin.", value: 1 },
+      { label: "We see both, but don’t review them consistently.", value: 2 },
+      { label: "We review both by account on a set cadence.", value: 3 },
     ],
   },
   {
     dimension: "recurring",
-    prompt: "How is the agreement base used to plan technician staffing and seasonal workload?",
+    prompt: "Does the agreement base drive staffing and seasonal capacity?",
     options: [
-      { label: "It is not connected to staffing decisions", value: 0 },
-      { label: "We use rough experience and seasonal judgment", value: 1 },
-      { label: "We compare the base with available capacity periodically", value: 2 },
-      { label: "Agreement demand is built into an active staffing and capacity model", value: 3 },
+      { label: "No. Staffing is separate.", value: 0 },
+      { label: "We use experience and seasonal judgment.", value: 1 },
+      { label: "We compare demand and capacity periodically.", value: 2 },
+      { label: "Agreement demand drives an active capacity plan.", value: 3 },
     ],
   },
   {
     dimension: "pullthrough",
-    prompt: "When a technician identifies repair or replacement work during PM, what normally happens next?",
+    prompt: "A tech finds repair work during PM. What happens next?",
     options: [
-      { label: "It depends on the technician and may stay in the work notes", value: 0 },
-      { label: "Dispatch or a manager usually hears about it", value: 1 },
-      { label: "There is a defined handoff, but execution is inconsistent", value: 2 },
-      { label: "The finding enters a tracked workflow with clear ownership and timing", value: 3 },
+      { label: "It may stay in the work notes.", value: 0 },
+      { label: "Dispatch or a manager usually hears about it.", value: 1 },
+      { label: "There’s a handoff, but it’s inconsistent.", value: 2 },
+      { label: "It enters a tracked workflow with an owner and due date.", value: 3 },
     ],
   },
   {
     dimension: "pullthrough",
-    prompt: "How much visibility do you have into deficiencies found, quoted, won and lost?",
+    prompt: "Can you see findings move from quote to win or loss?",
     options: [
-      { label: "We do not track the full path", value: 0 },
-      { label: "We can find the information with manual work", value: 1 },
-      { label: "We track most stages, but the data is not consistently trusted", value: 2 },
-      { label: "Leadership reviews conversion, aging and ownership from one reliable view", value: 3 },
+      { label: "No. We don’t track the full path.", value: 0 },
+      { label: "We can piece it together manually.", value: 1 },
+      { label: "We track most stages, but don’t trust all the data.", value: 2 },
+      { label: "We review conversion, aging, and ownership in one view.", value: 3 },
     ],
   },
   {
     dimension: "pricing",
-    prompt: "How often are agreement prices compared with actual labor, material and delivery cost?",
+    prompt: "How often do you compare PSA price with actual delivery cost?",
     options: [
-      { label: "Rarely or only after a problem", value: 0 },
-      { label: "During renewal when someone notices an issue", value: 1 },
-      { label: "At least annually for most agreements", value: 2 },
-      { label: "On a defined cadence with account-level performance data", value: 3 },
+      { label: "Rarely, or after a problem.", value: 0 },
+      { label: "At renewal, if someone flags it.", value: 1 },
+      { label: "At least annually for most agreements.", value: 2 },
+      { label: "On a set cadence with account-level data.", value: 3 },
     ],
   },
   {
     dimension: "pricing",
-    prompt: "How consistently are price increases, exceptions and discount decisions governed?",
+    prompt: "How controlled are price increases, discounts, and exceptions?",
     options: [
-      { label: "They are mostly handled case by case", value: 0 },
-      { label: "There are informal guardrails understood by a few people", value: 1 },
-      { label: "Rules exist, but exceptions are not always visible", value: 2 },
-      { label: "Guardrails, approvals and exception reporting are explicit", value: 3 },
+      { label: "They’re handled case by case.", value: 0 },
+      { label: "A few people know the informal guardrails.", value: 1 },
+      { label: "Rules exist, but exceptions aren’t always visible.", value: 2 },
+      { label: "Guardrails, approvals, and exceptions are explicit.", value: 3 },
     ],
   },
   {
     dimension: "tiers",
-    prompt: "What does the customer see when comparing your service agreement options?",
+    prompt: "What does a customer see when comparing agreement options?",
     options: [
-      { label: "A customized task list and price", value: 0 },
-      { label: "A basic PM option with occasional add-ons", value: 1 },
-      { label: "Multiple options, though the value difference is not always clear", value: 2 },
-      { label: "Defined tiers tied to customer outcomes and risk", value: 3 },
+      { label: "A custom task list and a price.", value: 0 },
+      { label: "A basic PM plan with add-ons.", value: 1 },
+      { label: "Several options, but the value gap isn’t always clear.", value: 2 },
+      { label: "Clear tiers tied to customer risk and outcomes.", value: 3 },
     ],
   },
   {
     dimension: "connected",
-    prompt: "How is BAS or connected-equipment data used inside the service program?",
+    prompt: "Does BAS or connected-equipment data create service work?",
     options: [
-      { label: "It is not part of the service model", value: 0 },
-      { label: "A few controls-capable people use it informally", value: 1 },
-      { label: "It supports selected accounts or agreement options", value: 2 },
-      { label: "It is a defined part of the offer, workflow and customer value story", value: 3 },
+      { label: "It isn’t part of the service model.", value: 0 },
+      { label: "A few controls-capable people use it informally.", value: 1 },
+      { label: "It supports selected accounts or agreement options.", value: 2 },
+      { label: "It’s built into the offer, workflow, and customer story.", value: 3 },
     ],
   },
   {
     dimension: "renewal",
-    prompt: "How far ahead of expiration does your renewal process normally begin?",
+    prompt: "When does renewal work start?",
     options: [
-      { label: "At expiration or when invoicing forces the issue", value: 0 },
-      { label: "Within 30 days", value: 1 },
-      { label: "30 to 90 days with an account review", value: 2 },
-      { label: "90+ days with pricing, performance, risk and expansion reviewed", value: 3 },
+      { label: "At expiration, or when invoicing forces it.", value: 0 },
+      { label: "Within 30 days.", value: 1 },
+      { label: "30–90 days out, with an account review.", value: 2 },
+      { label: "90+ days out, with price, risk, and growth reviewed.", value: 3 },
     ],
   },
   {
     dimension: "utilization",
-    prompt: "How well can leadership explain the gap between available technician hours and productive service hours?",
+    prompt: "Can leadership explain available versus productive tech hours?",
     options: [
-      { label: "We cannot explain it reliably", value: 0 },
-      { label: "Managers understand it through experience", value: 1 },
-      { label: "We track several utilization measures, but action is inconsistent", value: 2 },
-      { label: "The measures are trusted and drive scheduling, staffing and agreement goals", value: 3 },
+      { label: "Not reliably.", value: 0 },
+      { label: "Managers understand it from experience.", value: 1 },
+      { label: "We track it, but action is inconsistent.", value: 2 },
+      { label: "Trusted measures drive staffing, scheduling, and sales goals.", value: 3 },
     ],
   },
   {
     dimension: "sales",
-    prompt: "Who owns follow-up after a service repair quote is delivered?",
+    prompt: "Who owns follow-up after a repair quote goes out?",
     options: [
-      { label: "Ownership depends on the account or whoever remembers", value: 0 },
-      { label: "The owner or service manager usually handles it", value: 1 },
-      { label: "Roles are assigned, but follow-up cadence varies", value: 2 },
-      { label: "Ownership, timing and escalation are explicit and visible", value: 3 },
+      { label: "It depends on who remembers.", value: 0 },
+      { label: "The owner or service manager usually handles it.", value: 1 },
+      { label: "Roles are assigned, but cadence varies.", value: 2 },
+      { label: "Ownership, timing, and escalation are explicit.", value: 3 },
     ],
   },
   {
     dimension: "sales",
-    prompt: "How visible are open service quotes, next steps, close rate and aging to leadership?",
+    prompt: "Can leadership see open quotes, next steps, close rate, and aging?",
     options: [
-      { label: "They are scattered across systems or reports", value: 0 },
-      { label: "We can assemble the answer when needed", value: 1 },
-      { label: "A report exists, though next steps or aging are uneven", value: 2 },
-      { label: "Leadership reviews a trusted view on a defined cadence", value: 3 },
+      { label: "No. They’re scattered.", value: 0 },
+      { label: "We can assemble the answer when needed.", value: 1 },
+      { label: "A report exists, but next steps or aging are uneven.", value: 2 },
+      { label: "Leadership reviews one trusted view on a set cadence.", value: 3 },
     ],
   },
 ];
 
 function scoreBand(score: number) {
-  if (score < 40) {
-    return {
-      title: "Service activity, not yet a system.",
-      copy: "The shop is creating service value, but too much depends on individual effort, memory and owner intervention.",
-    };
-  }
-  if (score < 60) {
-    return {
-      title: "A foundation with material leakage.",
-      copy: "The essential pieces exist, but inconsistent handoffs and limited visibility are keeping the program from compounding.",
-    };
-  }
-  if (score < 80) {
-    return {
-      title: "A working program with uneven capture.",
-      copy: "The service business has real structure. The next gains are likely hiding in specific gaps between field execution, pricing and commercial ownership.",
-    };
-  }
-  return {
-    title: "A managed service growth engine.",
-    copy: "The program is operating from a strong base. The next questions are likely about optimization, connected service and increasing value per account.",
-  };
+  if (score < 40) return { title: "Activity, not yet a system.", copy: "Too much still depends on memory, individual effort, and owner intervention." };
+  if (score < 60) return { title: "A base with material leakage.", copy: "The pieces exist. The handoffs and visibility don’t hold together yet." };
+  if (score < 80) return { title: "A working program with uneven capture.", copy: "The structure is real. A few operating gaps are likely holding back the next gain." };
+  return { title: "A managed service growth engine.", copy: "The base is strong. The next moves are optimization, connected service, and value per account." };
 }
 
 export default function SelfScore() {
@@ -163,7 +141,6 @@ export default function SelfScore() {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [finished, setFinished] = useState(false);
-  const [unlocked, setUnlocked] = useState(false);
 
   const dimensionScores = useMemo(() => {
     const grouped: Record<string, { total: number; count: number }> = {};
@@ -172,26 +149,16 @@ export default function SelfScore() {
       grouped[question.dimension].total += answers[index] ?? 0;
       grouped[question.dimension].count += 1;
     });
-
-    return Object.fromEntries(
-      serviceDimensions.map((dimension) => {
-        const group = grouped[dimension.key];
-        const percentage = group ? Math.round((group.total / (group.count * 3)) * 100) : 0;
-        return [dimension.key, percentage];
-      }),
-    );
+    return Object.fromEntries(serviceDimensions.map((dimension) => {
+      const group = grouped[dimension.key];
+      return [dimension.key, group ? Math.round((group.total / (group.count * 3)) * 100) : 0];
+    }));
   }, [answers]);
 
-  const overallScore = useMemo(
-    () =>
-      Math.round(
-        serviceDimensions.reduce(
-          (total, dimension) => total + (dimensionScores[dimension.key] * dimension.weight) / 100,
-          0,
-        ),
-      ),
-    [dimensionScores],
-  );
+  const overallScore = useMemo(() => Math.round(serviceDimensions.reduce(
+    (total, dimension) => total + (dimensionScores[dimension.key] * dimension.weight) / 100,
+    0,
+  )), [dimensionScores]);
 
   const lowestDimensions = useMemo(
     () => [...serviceDimensions].sort((a, b) => dimensionScores[a.key] - dimensionScores[b.key]).slice(0, 2),
@@ -201,44 +168,39 @@ export default function SelfScore() {
   const current = questions[step];
   const band = scoreBand(overallScore);
 
-  function selectAnswer(value: number) {
-    setAnswers((currentAnswers) => ({ ...currentAnswers, [step]: value }));
-  }
-
   function goForward() {
     if (answers[step] === undefined) return;
-    if (step === questions.length - 1) {
-      setFinished(true);
-      return;
-    }
-    setStep((currentStep) => currentStep + 1);
+    if (step === questions.length - 1) setFinished(true);
+    else setStep((value) => value + 1);
   }
 
   function startOver() {
     setStarted(false);
     setFinished(false);
-    setUnlocked(false);
     setStep(0);
     setAnswers({});
   }
 
   if (!started) {
     return (
-      <section className="section self-score-shell">
+      <section className="section self-score-shell self-score-start">
         <div className="shell self-score-intro">
-          <p className="eyebrow">Free directional self-score</p>
-          <h1>How strong is your service program, really?</h1>
-          <p>
-            Answer 12 quick questions and get a directional score across agreements, pull-through, pricing, renewal, utilization and service sales. Takes about five minutes.
-          </p>
-          <div className="self-score-meta">
-            <span>No email required to see your score</span>
-            <span>No financial documents</span>
-            <span>Directional, not diagnostic</span>
+          <div>
+            <p className="eyebrow">Free directional self-score</p>
+            <h1>Where’s your service program leaking?</h1>
+            <p>Answer 12 questions. See all eight scores. Get the two areas to test first.</p>
+            <div className="self-score-meta">
+              <span>No email</span><span>No financial files</span><span>About five minutes</span>
+            </div>
+            <button className="button button-accent" type="button" onClick={() => setStarted(true)}>Start the self-score</button>
           </div>
-          <button className="button button-accent" type="button" onClick={() => setStarted(true)}>
-            Start the Self-Score
-          </button>
+          <aside className="self-score-start-panel" aria-label="Self-score at a glance">
+            <div className="stat-panel-header"><span>SPMA / Quick</span><span>Runs in your browser</span></div>
+            <div><strong>12</strong><span>operating questions</span></div>
+            <div><strong>8</strong><span>weighted dimensions</span></div>
+            <div><strong>2</strong><span>first places to test</span></div>
+            <small>Directional, not diagnostic.</small>
+          </aside>
         </div>
       </section>
     );
@@ -250,43 +212,28 @@ export default function SelfScore() {
       <section className="section self-score-shell">
         <div className="shell question-wrap">
           <div className="score-progress">
-            <div className="progress-meta">
-              <span>Question {step + 1} of {questions.length}</span>
-              <span>{Math.round(((step + 1) / questions.length) * 100)}%</span>
-            </div>
+            <div className="progress-meta"><span>Question {step + 1} of {questions.length}</span><span>{Math.round(((step + 1) / questions.length) * 100)}%</span></div>
             <div className="progress-track"><span style={{ width: `${((step + 1) / questions.length) * 100}%` }} /></div>
           </div>
           <div className="question-card">
-            <p className="question-dimension">
-              {serviceDimensions.find((dimension) => dimension.key === current.dimension)?.name}
-            </p>
+            <p className="question-dimension">{serviceDimensions.find((dimension) => dimension.key === current.dimension)?.name}</p>
             <h2>{current.prompt}</h2>
             <div className="option-list">
               {current.options.map((option, index) => (
                 <button
                   className={`option-button ${selected === option.value ? "option-button-selected" : ""}`}
                   type="button"
-                  onClick={() => selectAnswer(option.value)}
+                  onClick={() => setAnswers((value) => ({ ...value, [step]: option.value }))}
                   aria-pressed={selected === option.value}
                   key={option.label}
                 >
-                  <span className="option-key">{String.fromCharCode(65 + index)}</span>
-                  <span>{option.label}</span>
+                  <span className="option-key">{String.fromCharCode(65 + index)}</span><span>{option.label}</span>
                 </button>
               ))}
             </div>
             <div className="question-actions">
-              <button
-                className="button button-outline-dark"
-                type="button"
-                onClick={() => setStep((currentStep) => Math.max(0, currentStep - 1))}
-                disabled={step === 0}
-              >
-                Previous
-              </button>
-              <button className="button button-dark" type="button" onClick={goForward} disabled={selected === undefined}>
-                {step === questions.length - 1 ? "See My Score" : "Next Question"}
-              </button>
+              <button className="button button-outline-dark" type="button" onClick={() => setStep((value) => Math.max(0, value - 1))} disabled={step === 0}>Previous</button>
+              <button className="button button-dark" type="button" onClick={goForward} disabled={selected === undefined}>{step === questions.length - 1 ? "See my score" : "Next"}</button>
             </div>
           </div>
         </div>
@@ -298,55 +245,26 @@ export default function SelfScore() {
     <section className="section self-score-shell">
       <div className="shell result-wrap">
         <div className="result-top">
-          <div className="result-score" style={{ "--result-score": `${overallScore * 3.6}deg` } as React.CSSProperties}>
-            <div><strong>{overallScore}</strong><span>/100</span></div>
+          <div className="result-score" style={{ "--result-score": `${overallScore * 3.6}deg` } as React.CSSProperties}><div><strong>{overallScore}</strong><span>/100</span></div></div>
+          <div><p className="eyebrow">Your directional score</p><h2>{band.title}</h2><p>{band.copy}</p></div>
+        </div>
+        <div className="result-details">
+          <div className="result-details-heading"><div><p className="eyebrow">Eight-dimension breakdown</p><h3>Start with the two lowest signals.</h3></div><span>Directional only</span></div>
+          <div className="result-bars">
+            {serviceDimensions.map((dimension) => (
+              <div className="result-bar" key={dimension.key}>
+                <label>{dimension.name}</label>
+                <div className="result-bar-track"><span style={{ width: `${dimensionScores[dimension.key]}%` }} /></div>
+                <b>{dimensionScores[dimension.key]}</b>
+              </div>
+            ))}
           </div>
-          <div>
-            <p className="eyebrow">Your directional score</p>
-            <h2>{band.title}</h2>
-            <p>{band.copy}</p>
+          <div className="gap-callout"><span>Look here first</span><p><strong>{lowestDimensions[0].name}</strong> and <strong>{lowestDimensions[1].name}</strong> are your lowest directional scores. Test those two with real operating data before changing the whole program.</p></div>
+          <div className="button-row result-actions">
+            <a className="button button-accent" href="/book">Discuss my results</a>
+            <button className="button button-outline-dark" type="button" onClick={startOver}>Start over</button>
           </div>
         </div>
-
-        {!unlocked ? (
-          <div className="result-gate">
-            <p className="eyebrow">Get the full breakdown</p>
-            <h3>See your eight dimension scores and two likely priorities.</h3>
-            <p>Your score is above. The full breakdown is available here without an email address.</p>
-            <div className="form-actions">
-              <button className="button button-accent" type="button" onClick={() => setUnlocked(true)}>
-                See My Full Breakdown
-              </button>
-            </div>
-          </div>
-        ) : (
-          <div className="result-details">
-            <p className="eyebrow">Your dimension breakdown</p>
-            <h3>Where the program looks strongest and where to look first.</h3>
-            <div className="result-bars">
-              {serviceDimensions.map((dimension) => (
-                <div className="result-bar" key={dimension.key}>
-                  <label>{dimension.name}</label>
-                  <div className="result-bar-track"><span style={{ width: `${dimensionScores[dimension.key]}%` }} /></div>
-                  <b>{dimensionScores[dimension.key]}</b>
-                </div>
-              ))}
-            </div>
-            <div className="gap-callout">
-              <p>
-                Your lowest directional scores are <strong>{lowestDimensions[0].name}</strong> and <strong>{lowestDimensions[1].name}</strong>. Those are the first places to test with actual operating data.
-              </p>
-            </div>
-            <div className="button-row" style={{ marginTop: 28 }}>
-              <a className="button button-accent" href="/book">
-                Discuss My Results
-              </a>
-              <button className="button button-outline-dark" type="button" onClick={startOver}>
-                Start Over
-              </button>
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );

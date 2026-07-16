@@ -3,8 +3,11 @@ import { primaryNavigation } from "../data";
 export function Brand() {
   return (
     <a className="brand" href="/" aria-label="Keystone Commercial Partners home">
-      <span className="brand-word">KEYSTONE</span>
-      <span className="brand-descriptor">Commercial Partners</span>
+      <span className="brand-mark" aria-hidden="true"><i /><i /><i /></span>
+      <span className="brand-lockup">
+        <span className="brand-word">KEYSTONE</span>
+        <span className="brand-descriptor">Commercial Partners</span>
+      </span>
     </a>
   );
 }
@@ -24,7 +27,7 @@ export function SiteHeader() {
             </a>
           ))}
           <a className="button button-small button-accent" href="/book">
-            Book a Fit Call
+            Book a fit call
           </a>
         </nav>
         <details className="mobile-menu">
@@ -36,7 +39,7 @@ export function SiteHeader() {
               </a>
             ))}
             <a className="button button-accent" href="/book">
-              Book a Fit Call
+              Book a fit call
             </a>
           </nav>
         </details>
@@ -60,9 +63,9 @@ export function SiteFooter() {
           <p className="footer-heading">Navigate</p>
           <div className="footer-links">
             <a href="/assessment">Service Program Assessment</a>
-            <a href="/self-score">Self-Score Your Shop</a>
+            <a href="/self-score">Self-score your shop</a>
             <a href="/about">About Tom</a>
-            <a href="/book">Book a Fit Call</a>
+            <a href="/book">Book a fit call</a>
           </div>
         </div>
         <div>
@@ -78,7 +81,7 @@ export function SiteFooter() {
       </div>
       <div className="shell footer-bottom">
         <span>© {new Date().getFullYear()} Keystone Commercial Partners</span>
-        <span>Operating value today. Enterprise value at exit.</span>
+        <span>Stronger service economics. More durable company value.</span>
       </div>
     </footer>
   );

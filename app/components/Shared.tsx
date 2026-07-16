@@ -40,11 +40,11 @@ export function DimensionGrid({ detailed = false }: { detailed?: boolean }) {
 
 export function ServiceFlow() {
   const steps = [
-    ["01", "Agreement", "Recurring base load"],
-    ["02", "Tech visit", "Access to the customer and the equipment"],
-    ["03", "Captured finding", "A clean handoff to a quote"],
-    ["04", "Repair or replacement", "Work won and delivered"],
-    ["05", "Stronger renewal", "The account stays and grows"],
+    ["01", "Agreement", "Recurring access"],
+    ["02", "PM visit", "Tech sees the risk"],
+    ["03", "Finding", "Owner and due date"],
+    ["04", "Quote", "Customer decides"],
+    ["05", "Renewal", "Account stays and grows"],
   ];
 
   return (
@@ -64,8 +64,8 @@ export function ServiceFlow() {
 }
 
 export function FinalCta({
-  title = "Find out what your service program could actually be producing.",
-  copy = "One call is enough to tell whether the assessment is worth your time and money.",
+  title = "Find the first leak worth fixing.",
+  copy = "One call is enough to know whether the assessment is worth your time and money.",
 }: {
   title?: string;
   copy?: string;
@@ -74,16 +74,16 @@ export function FinalCta({
     <section className="final-cta">
       <div className="shell final-cta-inner">
         <div>
-          <p className="eyebrow">The first step</p>
+          <p className="eyebrow">30-minute fit call</p>
           <h2>{title}</h2>
           <p>{copy}</p>
         </div>
         <div className="button-row">
           <a className="button button-accent" href="/book">
-            Book a 30-Minute Fit Call
+            Book a 30-minute fit call
           </a>
           <a className="button button-outline-light" href="/self-score">
-            Self-Score Your Shop
+            Self-score your shop
           </a>
         </div>
       </div>

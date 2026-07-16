@@ -46,4 +46,5 @@ The fit-call form prepares a direct email in the visitor's email app. Nothing is
 - Primary conversion: book a 30-minute fit conversation
 - Secondary conversion: complete the free Shop Self-Score
 - Visual system: graphite and steel-blue instrument panels with a restrained orange status accent
+- Photography: custom, rights-safe commercial mechanical-room, rooftop and BAS imagery
 - Core framework: eight weighted service-program dimensions
