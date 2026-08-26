@@ -312,8 +312,8 @@ export default function Home() {
           <p className="hero-proof">20 years in commercial service · Carrier, Johnson Controls, and privately held mechanical contractors · References available on the first call</p>
         </div>
         <div className="hero-visual">
-          <img className="hero-image" src="/tom-randazzo.webp" alt="Tom Randazzo, founder of Keystone Commercial Partners" />
-          <div className="hero-photo-label"><span>TOM RANDAZZO</span><strong>TWENTY YEARS IN COMMERCIAL SERVICE.</strong></div>
+          <img className="hero-image" src="/mechanical-room-hero.webp" alt="Commercial HVAC mechanical room" />
+          <div className="hero-photo-label"><span>COMMERCIAL SERVICE</span><strong>THE BASE STARTS HERE.</strong></div>
         </div>
       </section>
 
