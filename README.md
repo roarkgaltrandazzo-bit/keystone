@@ -1,17 +1,22 @@
 # Keystone Commercial Partners
 
-Website for Keystone's commercial and industrial HVAC service-program advisory practice.
+Website for Tom Randazzo's commercial HVAC and mechanical service-growth practice.
 
-The site is built around one paid entry engagement, the Service Program Assessment, and one free mid-funnel tool, the 12-question Shop Self-Score.
+The page is built around one idea: a maintenance agreement creates scheduled revenue, puts technicians inside the building, earns the first call, and leads to the next repair, retrofit, or replacement.
 
-## Public routes
+## Main page
 
-- `/` homepage
-- `/assessment` paid assessment offer
-- `/self-score` interactive directional score
-- `/about` Tom Randazzo's operating background
-- `/book` qualified fit-call form
-- `/privacy` privacy notice
+- Owner situations Tom usually walks into
+- Five-step maintenance-base loop
+- Structure, pricing, selling, renewing, and operating support
+- Three-part engagement
+- Career proof and background
+- Thirty-minute service review form
+- Twelve-question Service Base Scorecard
+
+## Forms
+
+Service review submissions and requested scorecard breakdowns are saved to D1 through `/api/leads`. The public GitHub Pages build posts to the same hosted endpoint.
 
 ## Local development
 
@@ -30,21 +35,4 @@ npm run build
 npm run build:pages
 ```
 
-`npm run build` creates the Vinext/Cloudflare artifact. `npm run build:pages` creates the static multi-page site in `dist-pages/` for GitHub Pages.
-
-## GitHub Pages
-
-The workflow in `.github/workflows/pages.yml` installs the locked dependencies, runs the static build and deploys `dist-pages/`. The custom domain is preserved through `public/CNAME`.
-
-## Forms
-
-The fit-call form prepares a direct email in the visitor's email app. Nothing is sent until the visitor presses send. The self-score is calculated locally in the browser and does not collect or transmit answers.
-
-## Content and design
-
-- Audience: $3M–$15M commercial and industrial mechanical contractors
-- Primary conversion: book a 30-minute fit conversation
-- Secondary conversion: complete the free Shop Self-Score
-- Visual system: graphite and steel-blue instrument panels with a restrained orange status accent
-- Photography: custom, rights-safe commercial mechanical-room, rooftop and BAS imagery
-- Core framework: eight weighted service-program dimensions
+`npm run build` creates the hosted application. `npm run build:pages` creates the static GitHub Pages version in `dist-pages/`.
