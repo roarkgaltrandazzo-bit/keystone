@@ -30,7 +30,7 @@ const walkInto = [
   "The backlog's full through August. January's still an open question.",
   "You've got PM agreements and nobody can tell you which ones make money.",
   "Service shows up when a technician happens to notice something on a call.",
-  "One person sells service. If he leaves, the number leaves with him.",
+  "One person sells service. If they leave, the number leaves with them.",
   "Renewals go out at last year's price because repricing means a conversation nobody wants to have.",
   "A rooftop unit gets replaced in a building you've held for six years and the first you hear about it is the bid invitation.",
 ];
@@ -87,7 +87,7 @@ const serviceActions = [
   {
     number: "05",
     title: "Run it",
-    text: "Scheduling, technician follow-up, repair pull-through, and a weekly number your managers can read without you.",
+    text: "Scheduling, technician follow-up, repair pull-through, and a weekly number your managers read and act on before you ask for it.",
   },
 ];
 
@@ -95,12 +95,12 @@ const ongoingActions = [
   {
     number: "06",
     title: "Fractional sales leadership",
-    text: "I run your service sales effort the way a VP would. Pipeline, pricing calls, ride-alongs, coaching your sellers, and the weekly number. You get that years before payroll can carry a full-time hire.",
+    text: "I run your service sales effort the way a VP would. Pipeline, pricing calls, ride-alongs, coaching your sellers, and the weekly number. You get senior sales leadership before a full-time VP makes financial sense.",
   },
   {
     number: "07",
     title: "Strategic account management",
-    text: "I take your largest and most at-risk accounts myself. Business reviews, renewal strategy, escalations, and finding the next project inside buildings you already hold.",
+    text: "I take your largest accounts, and the ones you can least afford to lose. Business reviews, renewal strategy, escalations, and finding the next project inside buildings you already hold.",
   },
 ];
 
@@ -112,7 +112,7 @@ const engagementSteps = [
   },
   {
     number: "02",
-    title: "We fix",
+    title: "We build",
     text: "Ninety days on the two or three things that move the number first. You keep everything we build: a price book, an agreement your team can price the same way twice, a list of buildings worth going after, and a weekly routine your managers run when I'm not in the room.",
   },
   {
@@ -127,7 +127,7 @@ type ScoreArea = "Ownership" | "Pricing" | "Selling" | "Renewing" | "Operating";
 const scoreQuestions: { area: ScoreArea; question: string }[] = [
   { area: "Ownership", question: "Is one person named and measured against the service-growth number?" },
   { area: "Ownership", question: "Does a signed PM agreement reach service with scope, hours, and responsibilities clear?" },
-  { area: "Ownership", question: "Can your service manager read the service P&L without you?" },
+  { area: "Ownership", question: "Does your service manager have the service P&L and use it?" },
   { area: "Pricing", question: "Can two people scope the same agreement and land within a few hours of each other?" },
   { area: "Pricing", question: "Is your price book current and used by every seller and branch?" },
   { area: "Pricing", question: "Do you know the gross margin on every PM agreement?" },
@@ -300,15 +300,15 @@ export default function Home() {
       <section className="hero" id="top" ref={heroRef}>
         <div className="hero-copy">
           <p className="eyebrow">COMMERCIAL SERVICE GROWTH</p>
-          <h1>In most companies, service is the<br className="desktop-break" /> only department nobody actually runs.</h1>
+          <h1>Your service base grew one agreement at a time.<br className="desktop-break" /> Now it needs a plan.</h1>
           <p className="hero-intro">
-            Most commercial contractors carry a maintenance base that got built one customer at a time, by whoever happened to sell it. I fix how service gets structured, priced, sold, renewed, and run so the base grows to a number you set and can hold people to.
+            Most commercial contractors carry a maintenance base that grew one customer at a time, ahead of any plan for it. I help you turn that base into a service business your team can price, sell, renew, and run against a number you set.
           </p>
           <div className="hero-actions">
             <a href="#start-here" className="button button-gold">Book a service review <ArrowUpRight /></a>
             <a href="#scorecard" className="text-link">Take the service base scorecard <ArrowDown /></a>
           </div>
-          <p className="hero-note">Thirty minutes. You leave with the two things I would fix first, whether or not we work together.</p>
+          <p className="hero-note">Thirty minutes. You leave with the two things I'd change first, whether or not we work together.</p>
           <p className="hero-proof">20 years in commercial service · Carrier, Johnson Controls, and privately held mechanical contractors · References available on the first call</p>
         </div>
         <div className="hero-visual">
@@ -319,15 +319,15 @@ export default function Home() {
 
       <section className="walk-in" id="walk-in">
         <div className="compact-heading">
-          <p className="eyebrow">WHAT I USUALLY WALK INTO</p>
-          <h2>The backlog's full. Service still runs on memory and one good seller.</h2>
+          <p className="eyebrow">WHAT I SEE MOST OFTEN</p>
+          <h2>The backlog's full. Service runs on memory and one good seller.</h2>
         </div>
         <div className="walk-list">
           {walkInto.map((item) => <p key={item}>{item}</p>)}
         </div>
         <div className="section-end">
-          <p>None of these are hard problems. They stay unfixed because nobody in the building owns them.</p>
-          <a href="#why-the-base-wins">See what the base should do <ArrowDown /></a>
+          <p>None of these are emergencies. That's why they survive. They become somebody's second priority, and second priorities can stay there for years.</p>
+          <a href="#why-the-base-wins">See what the base is worth <ArrowDown /></a>
         </div>
       </section>
 
@@ -335,7 +335,7 @@ export default function Home() {
         <div className="base-heading">
           <p className="eyebrow eyebrow-gold">WHY THE BASE WINS</p>
           <h2>Every agreement you sign buys you four things. The monthly revenue is the smallest of them.</h2>
-          <p>A project pays once and ends. An agreement pays every month, puts your people inside the building on a schedule, makes you the first call when something fails, and hands you the replacement when the equipment is done. Four returns on one signature. Most companies price it like it delivers the first one.</p>
+          <p>A project pays once and ends. An agreement pays every month, puts your people inside the building on a schedule, makes you the first call when something fails, and hands you the replacement when the equipment is done. Four returns on one signature. Most agreements get priced as if only the first one existed.</p>
         </div>
 
         <div className="loop-graphic" aria-label="How a maintenance agreement feeds the next agreement">
@@ -354,7 +354,7 @@ export default function Home() {
           <div className="loop-return" aria-hidden="true"><span>05 FEEDS 01</span></div>
         </div>
 
-        <p className="loop-close">That's the loop. In most companies it turns by accident, one customer at a time.</p>
+        <p className="loop-close">That's the loop. Most contractors turn it one customer at a time. Turning it on purpose is the whole job.</p>
 
         <div className="value-frame">
           <p className="eyebrow eyebrow-gold">WHAT IT'S WORTH</p>
@@ -424,7 +424,7 @@ export default function Home() {
       </section>
 
       <section className="proof-strip" id="proof">
-        <p>WHY I GET TO SAY THIS</p>
+        <p>WHERE THIS COMES FROM</p>
         <div><strong>20 YEARS</strong><span>Commercial service</span></div>
         <div><strong>CARRIER + JCI</strong><span>Operator and sales leadership</span></div>
         <div><strong>FIRST CALL</strong><span>References available</span></div>
@@ -441,7 +441,7 @@ export default function Home() {
         </figure>
         <div className="about-copy">
           <p>I'm Tom Randazzo. I've spent twenty years selling commercial service and leading the people responsible for it, at Carrier, Johnson Controls, and privately held mechanical contractors. I've built agreement bases, repriced bad ones, hired and fired service sellers, and sat in the room when the number didn't come in.</p>
-          <p>This happens inside your operation, with the people already on your payroll. Your service manager runs the renewal review. Your estimator prices the agreement. Your seller walks the roof and I walk it with him. When I stop showing up, the routine keeps running because your people are the ones running it.</p>
+          <p>This happens inside your operation, with the people already on your payroll. Your service manager runs the renewal review. Your estimator prices the agreement. Your seller walks the roof and I walk it with them. When I stop showing up, the routine keeps running because your people are the ones running it.</p>
           <a className="section-link" href="#start-here">Bring me your three numbers <ArrowDown /></a>
         </div>
       </section>
@@ -450,7 +450,7 @@ export default function Home() {
         <div className="start-intro">
           <p className="eyebrow eyebrow-gold">START HERE</p>
           <h2>In thirty minutes I can tell you where your service business is leaking.</h2>
-          <p>Bring three numbers. Your revenue, roughly what share of it is service, and how many PM agreements you carry. I'll tell you what I'd fix first, what it's likely worth, and whether I'm the right person to help. If I'm not, I'll tell you that too.</p>
+          <p>Bring three numbers. Your revenue, roughly what share of it is service, and how many PM agreements you carry. I'll tell you what I'd change first, what it's likely worth, and whether I'm the right person to help. If I'm not, I'll tell you that too.</p>
         </div>
 
         <form className="review-form" onSubmit={submitReview}>
@@ -468,7 +468,7 @@ export default function Home() {
                 <option>$50M+</option>
               </select>
             </label>
-            <label className="form-wide">What is the one thing about your service business that keeps not getting fixed?
+            <label className="form-wide">If we changed one thing first, what would it be?
               <textarea name="problem" rows={5} required />
             </label>
             <label className="honey" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
@@ -533,7 +533,7 @@ export default function Home() {
             <div className="score-result" id="score-result" aria-live="polite">
               <div className="score-number"><strong>{score}</strong><span>/ 24</span></div>
               <div>
-                <p>FIX THIS FIRST</p>
+                <p>START WITH THIS</p>
                 <h3>{weakestArea}</h3>
                 <span>{areaCopy[weakestArea]}</span>
               </div>

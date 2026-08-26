@@ -15,13 +15,13 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.keystonecommercialpartners.com"),
   title: {
-    default: "Service Is the Only Department Nobody Actually Runs | Keystone Commercial Partners",
+    default: "Commercial Service Growth for Mechanical Contractors | Keystone Commercial Partners",
     template: "%s | Keystone Commercial Partners",
   },
   description:
     "Keystone helps commercial HVAC and mechanical contractors structure, price, sell, renew, and run a bigger service business.",
   openGraph: {
-    title: "In Most Companies, Service Is the Only Department Nobody Actually Runs.",
+    title: "Your Service Base Grew One Agreement at a Time. Now It Needs a Plan.",
     description: "Commercial service growth for independent HVAC and mechanical contractors.",
     type: "website",
     url: "https://www.keystonecommercialpartners.com/",
@@ -29,12 +29,12 @@ export const metadata: Metadata = {
       url: "https://www.keystonecommercialpartners.com/og.png",
       width: 1200,
       height: 630,
-      alt: "In most companies, service is the only department nobody actually runs.",
+      alt: "Your service base grew one agreement at a time. Now it needs a plan.",
     }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "In Most Companies, Service Is the Only Department Nobody Actually Runs.",
+    title: "Your Service Base Grew One Agreement at a Time. Now It Needs a Plan.",
     description: "Commercial service growth for independent HVAC and mechanical contractors.",
     images: ["https://www.keystonecommercialpartners.com/og.png"],
   },
