@@ -27,19 +27,19 @@ const KeystoneLogo = ({ onDark = false }: { onDark?: boolean }) => (
 );
 
 const walkInto = [
-  "The backlog is full through August and January is still an open question.",
-  "You carry PM agreements and nobody can tell you which ones make money.",
-  "Service work shows up when a technician happens to notice something on a call.",
+  "The backlog's full through August. January's still an open question.",
+  "You've got PM agreements and nobody can tell you which ones make money.",
+  "Service shows up when a technician happens to notice something on a call.",
   "One person sells service. If he leaves, the number leaves with him.",
   "Renewals go out at last year's price because repricing means a conversation nobody wants to have.",
-  "A rooftop unit gets replaced in a building you have held for six years and the first you hear about it is the bid invitation.",
+  "A rooftop unit gets replaced in a building you've held for six years and the first you hear about it is the bid invitation.",
 ];
 
 const loopSteps = [
   {
     number: "01",
     title: "Revenue already sold",
-    text: "It is on the calendar before the year starts. It fills technician hours in a slow quarter and it renews without a bid.",
+    text: "It's on the calendar before the year starts. It fills technician hours in a slow quarter and it renews without a bid.",
   },
   {
     number: "02",
@@ -108,12 +108,12 @@ const engagementSteps = [
   {
     number: "01",
     title: "We look",
-    text: "A day inside your operation. Your agreements, your price book, your last ten proposals, your service P&L. You get a straight read on where the money leaks and what it is worth to stop it.",
+    text: "A day inside your operation. Your agreements, your price book, your last ten proposals, your service P&L. You get a straight read on where the money leaks and what it's worth to stop it.",
   },
   {
     number: "02",
     title: "We fix",
-    text: "Ninety days on the two or three things that move the number first. You keep the work: a price book, an agreement your team can price the same way twice, a list of buildings worth going after, and a weekly routine your managers run when I am not in the room.",
+    text: "Ninety days on the two or three things that move the number first. You keep everything we build: a price book, an agreement your team can price the same way twice, a list of buildings worth going after, and a weekly routine your managers run when I'm not in the room.",
   },
   {
     number: "03",
@@ -181,6 +181,13 @@ export default function Home() {
     () => answers.reduce<number>((sum, answer) => sum + (answer ?? 0), 0),
     [answers],
   );
+
+  const answeredCount = useMemo(
+    () => answers.filter((answer) => answer !== null).length,
+    [answers],
+  );
+
+  const scoreProgress = Math.round((answeredCount / scoreQuestions.length) * 100);
 
   const weakestArea = useMemo(() => {
     const totals = new Map<ScoreArea, { score: number; possible: number }>();
@@ -265,7 +272,7 @@ export default function Home() {
 
       if (!response.ok) throw new Error("Unable to submit");
       setScoreEmailState("success");
-      setScoreEmailMessage("I have it. I'll send the written breakdown to your inbox.");
+      setScoreEmailMessage("Got it. I'll send the written breakdown to your inbox.");
       form.reset();
     } catch {
       setScoreEmailState("error");
@@ -283,7 +290,7 @@ export default function Home() {
           <a href="#why-the-base-wins">Why the base wins</a>
           <a href="#what-i-do">What I do</a>
           <a href="#how-it-works">How it works</a>
-          <a href="#about">About</a>
+          <a href="#about">About Tom</a>
         </nav>
         <a href="#start-here" className="button button-small button-gold">
           Book a service review <ArrowUpRight />
@@ -293,26 +300,27 @@ export default function Home() {
       <section className="hero" id="top" ref={heroRef}>
         <div className="hero-copy">
           <p className="eyebrow">COMMERCIAL SERVICE GROWTH</p>
-          <h1>Build a bigger, more profitable service business inside your existing operation.</h1>
+          <h1>In most companies, service is the<br className="desktop-break" /> only department nobody actually runs.</h1>
           <p className="hero-intro">
-            Most commercial contractors carry a maintenance base that got built one customer at a time, by whoever happened to sell it. I work inside your operation on how service gets priced, sold, renewed, and run, so the base grows to a number you set and can hold people to.
+            Most commercial contractors carry a maintenance base that got built one customer at a time, by whoever happened to sell it. I fix how service gets structured, priced, sold, renewed, and run so the base grows to a number you set and can hold people to.
           </p>
           <div className="hero-actions">
             <a href="#start-here" className="button button-gold">Book a service review <ArrowUpRight /></a>
-            <a href="#why-the-base-wins" className="text-link">See why the base wins <ArrowDown /></a>
+            <a href="#scorecard" className="text-link">Take the service base scorecard <ArrowDown /></a>
           </div>
           <p className="hero-note">Thirty minutes. You leave with the two things I would fix first, whether or not we work together.</p>
+          <p className="hero-proof">20 years in commercial service · Carrier, Johnson Controls, and privately held mechanical contractors · References available on the first call</p>
         </div>
-        <div className="hero-visual" aria-label="Commercial mechanical room">
-          <div className="hero-image" />
-          <div className="hero-photo-label"><span>MECHANICAL ROOM</span><strong>THE BASE STARTS HERE.</strong></div>
+        <div className="hero-visual">
+          <img className="hero-image" src="/tom-randazzo.webp" alt="Tom Randazzo, founder of Keystone Commercial Partners" />
+          <div className="hero-photo-label"><span>TOM RANDAZZO</span><strong>TWENTY YEARS IN COMMERCIAL SERVICE.</strong></div>
         </div>
       </section>
 
       <section className="walk-in" id="walk-in">
         <div className="compact-heading">
           <p className="eyebrow">WHAT I USUALLY WALK INTO</p>
-          <h2>In most companies, service is the only department nobody actually runs.</h2>
+          <h2>The backlog's full. Service still runs on memory and one good seller.</h2>
         </div>
         <div className="walk-list">
           {walkInto.map((item) => <p key={item}>{item}</p>)}
@@ -325,7 +333,7 @@ export default function Home() {
 
       <section className="base-wins" id="why-the-base-wins">
         <div className="base-heading">
-          <p className="eyebrow eyebrow-gold">WHY SERVICE</p>
+          <p className="eyebrow eyebrow-gold">WHY THE BASE WINS</p>
           <h2>Every agreement you sign buys you four things. The monthly revenue is the smallest of them.</h2>
           <p>A project pays once and ends. An agreement pays every month, puts your people inside the building on a schedule, makes you the first call when something fails, and hands you the replacement when the equipment is done. Four returns on one signature. Most companies price it like it delivers the first one.</p>
         </div>
@@ -350,8 +358,8 @@ export default function Home() {
 
         <div className="value-frame">
           <p className="eyebrow eyebrow-gold">WHAT IT'S WORTH</p>
-          <p>Two contractors the same size in the same market. One does ten percent of revenue in service. The other does forty. The second one starts January with <strong>[X] million already booked</strong>, keeps his technicians busy through a slow spring, and gets a different number from a buyer.</p>
-          <span>[TOM: INSERT THE COMPARISON YOU ARE PREPARED TO DEFEND ON A CALL.]</span>
+          <p>Two contractors can finish the year at the same revenue and carry very different businesses into January. The one with the larger service base already has labor sold, customers under agreement, and the first shot at the repairs and replacements inside those buildings.</p>
+          <span>More revenue under agreement means less of next year starts at zero.</span>
         </div>
         <a className="section-link section-link-light" href="#what-i-do">See what I do inside the operation <ArrowDown /></a>
       </section>
@@ -359,10 +367,10 @@ export default function Home() {
       <section className="what-i-do" id="what-i-do">
         <div className="split-heading">
           <div>
-            <p className="eyebrow">HOW I HELP</p>
+            <p className="eyebrow">WHAT I DO</p>
             <h2>Structure it. Price it. Sell it. Renew it. Run it.</h2>
           </div>
-          <p>This is the work, roughly in the order it happens.</p>
+          <p>If one of these stays loose, the base leaks.</p>
         </div>
 
         <div className="action-list">
@@ -392,7 +400,7 @@ export default function Home() {
 
       <section className="how-it-works" id="how-it-works">
         <div className="compact-heading compact-heading-wide">
-          <p className="eyebrow">WORKING TOGETHER</p>
+          <p className="eyebrow">HOW IT WORKS</p>
           <h2>How it actually goes.</h2>
         </div>
         <div className="engagement-list">
@@ -405,26 +413,35 @@ export default function Home() {
           ))}
         </div>
         <div className="plain-objection">
-          <strong>A few things to be clear about:</strong> No cohort. No course library. Nothing to log into. Your team keeps working while this happens. You will see me in your mechanical rooms.
+          <strong>A few things to be clear about:</strong> No cohort. No course library. Nothing to log into. Your team keeps working while this happens. You'll see me in your mechanical rooms.
+        </div>
+        <div className="engagement-price">
+          <span>TYPICAL 90-DAY BUILD</span>
+          <strong>$25K TO $45K</strong>
+          <p>Ongoing fractional leadership or account management is scoped separately.</p>
         </div>
         <a className="section-link" href="#proof">See the experience behind it <ArrowDown /></a>
       </section>
 
       <section className="proof-strip" id="proof">
-        <p>CAREER RESULT</p>
-        <strong>47%</strong>
-        <h2>Recurring service growth at Carrier.</h2>
-        <span>References available on the first call.</span>
+        <p>WHY I GET TO SAY THIS</p>
+        <div><strong>20 YEARS</strong><span>Commercial service</span></div>
+        <div><strong>CARRIER + JCI</strong><span>Operator and sales leadership</span></div>
+        <div><strong>FIRST CALL</strong><span>References available</span></div>
       </section>
 
       <section className="about" id="about">
         <div className="about-heading">
-          <p className="eyebrow">WHO'S BEHIND KEYSTONE</p>
+          <p className="eyebrow">ABOUT TOM</p>
           <h2>Twenty years inside commercial service.</h2>
         </div>
+        <figure className="about-portrait">
+          <img src="/tom-randazzo.webp" alt="Tom Randazzo" />
+          <figcaption>Tom Randazzo · Founder</figcaption>
+        </figure>
         <div className="about-copy">
-          <p>I'm Tom Randazzo. I have spent twenty years selling commercial service and leading the people responsible for it, at Carrier, at Johnson Controls, and at privately held mechanical contractors. I have built agreement bases, repriced bad ones, hired and fired service sellers, and sat in the room when the number didn't come in.</p>
-          <p>The work happens inside your operation, with the people already on your payroll. Your service manager runs the renewal review. Your estimator prices the agreement. Your seller walks the roof and I walk it with him. When I stop showing up, the routine keeps running, because your people are the ones running it.</p>
+          <p>I'm Tom Randazzo. I've spent twenty years selling commercial service and leading the people responsible for it, at Carrier, Johnson Controls, and privately held mechanical contractors. I've built agreement bases, repriced bad ones, hired and fired service sellers, and sat in the room when the number didn't come in.</p>
+          <p>This happens inside your operation, with the people already on your payroll. Your service manager runs the renewal review. Your estimator prices the agreement. Your seller walks the roof and I walk it with him. When I stop showing up, the routine keeps running because your people are the ones running it.</p>
           <a className="section-link" href="#start-here">Bring me your three numbers <ArrowDown /></a>
         </div>
       </section>
@@ -433,7 +450,7 @@ export default function Home() {
         <div className="start-intro">
           <p className="eyebrow eyebrow-gold">START HERE</p>
           <h2>In thirty minutes I can tell you where your service business is leaking.</h2>
-          <p>Bring three numbers. Your revenue, roughly what share of it is service, and how many PM agreements you carry. I will tell you what I would fix first, what it is likely worth, and whether I am the right person to help. If I am not, I will tell you that too.</p>
+          <p>Bring three numbers. Your revenue, roughly what share of it is service, and how many PM agreements you carry. I'll tell you what I'd fix first, what it's likely worth, and whether I'm the right person to help. If I'm not, I'll tell you that too.</p>
         </div>
 
         <form className="review-form" onSubmit={submitReview}>
@@ -463,11 +480,23 @@ export default function Home() {
           <p className="direct-line">No deck. No junior rep. No four calls before you get to me.<br />Call or text directly: <a href="tel:+19205854179">920-585-4179</a> · <a href="mailto:tom@keystonecommercialpartners.com">tom@keystonecommercialpartners.com</a></p>
         </form>
 
-        <div className="scorecard-shell">
+        <div className="scorecard-shell" id="scorecard">
           <div className="scorecard-intro">
             <p className="eyebrow">A SMALLER FIRST STEP</p>
             <h3>Take the Service Base Scorecard.</h3>
             <p>Twelve questions, five minutes, scored on the spot. It tells you which part of your service business is costing you the most right now.</p>
+          </div>
+
+          <div
+            className="score-progress"
+            role="progressbar"
+            aria-label="Scorecard progress"
+            aria-valuemin={0}
+            aria-valuemax={scoreQuestions.length}
+            aria-valuenow={answeredCount}
+          >
+            <div><span>{answeredCount} OF {scoreQuestions.length} ANSWERED</span><strong>{scoreProgress}%</strong></div>
+            <div className="score-progress-track" aria-hidden="true"><span style={{ width: `${scoreProgress}%` }} /></div>
           </div>
 
           <form className="scorecard" onSubmit={showScore}>
