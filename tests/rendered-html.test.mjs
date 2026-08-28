@@ -29,7 +29,7 @@ test("homepage renders the final title and exactly one h1", async () => {
 });
 
 test("privacy page states that scorecard answers are never transmitted", async () => {
-  const response = await requestPath("/privacy/");
+  const response = await requestPath("/privacy");
   const html = await response.text();
 
   assert.equal(response.status, 200);
@@ -38,7 +38,7 @@ test("privacy page states that scorecard answers are never transmitted", async (
 });
 
 test("removed legacy pages return the custom 404", async () => {
-  const response = await requestPath("/about/");
+  const response = await requestPath("/about");
   const html = await response.text();
 
   assert.equal(response.status, 404);

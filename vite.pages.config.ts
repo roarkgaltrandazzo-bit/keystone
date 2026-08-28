@@ -4,9 +4,10 @@ import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
 const rootDir = dirname(fileURLToPath(import.meta.url));
+const pagesRoot = resolve(rootDir, "github-pages");
 
 export default defineConfig({
-  root: resolve(rootDir, "github-pages"),
+  root: pagesRoot,
   publicDir: resolve(rootDir, "public"),
   base: "/",
   plugins: [react()],
@@ -14,7 +15,11 @@ export default defineConfig({
     outDir: resolve(rootDir, "dist-pages"),
     emptyOutDir: true,
     rollupOptions: {
-      input: resolve(rootDir, "github-pages", "index.html"),
+      input: [
+        resolve(pagesRoot, "index.html"),
+        resolve(pagesRoot, "privacy/index.html"),
+        resolve(pagesRoot, "404.html"),
+      ],
     },
   },
 });

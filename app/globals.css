@@ -1,5 +1,7 @@
 :root {
   color-scheme: light;
+  --font-body: "Barlow";
+  --font-display: "Barlow Condensed";
   --paper: #f3f0e8;
   --paper-alt: #e9e5dc;
   --surface: #fffdf7;
