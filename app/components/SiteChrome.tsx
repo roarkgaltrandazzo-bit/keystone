@@ -53,7 +53,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="shell footer-lines">
         <p>
-          Appleton, Wisconsin <span aria-hidden="true">·</span>{" "}
+          Based in Appleton, WI. Serving contractors throughout the midwest <span aria-hidden="true">·</span>{" "}
           <a href="mailto:tom@keystonecommercialpartners.com">tom@keystonecommercialpartners.com</a>{" "}
           <span aria-hidden="true">·</span>{" "}
           <TrackedLink href="tel:+19205854179" eventName="Phone link tap">920-585-4179</TrackedLink>{" "}
