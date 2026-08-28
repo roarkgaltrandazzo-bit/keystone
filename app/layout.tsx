@@ -17,7 +17,7 @@ const displayFont = Barlow_Condensed({
 });
 
 const title = "Commercial Service Agreements for Mechanical Contractors | Keystone Commercial Partners";
-const description = "There's more money in maintaining commercial mechanical equipment than installing it. Keystone helps contractors sell, price, and run service agreements.";
+const description = "There's more money in maintaining commercial mechanical equipment than installing it. Keystone helps contractors price, sell, and run service agreements.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.keystonecommercialpartners.com"),

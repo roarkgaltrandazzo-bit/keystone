@@ -159,8 +159,8 @@ export function ServiceScorecard() {
     <div className="scorecard-js">
       {!open ? (
         <div className="scorecard-launch">
-          <p className="eyebrow eyebrow-gold">Service base scorecard</p>
-          <h3>See where the next agreement is getting lost.</h3>
+          <p className="eyebrow eyebrow-gold">Assessment</p>
+          <h3>Assess your current service business</h3>
           <p>Twelve questions. No gate. Your answers stay in this browser.</p>
           <button className="button button-light" type="button" onClick={begin}>
             Score your service business

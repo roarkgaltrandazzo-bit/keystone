@@ -1,14 +1,18 @@
 import type { ReactNode } from "react";
 import { TrackedLink } from "./TrackedLink";
 
+/* eslint-disable @next/next/no-img-element */
+
 export function Brand() {
   return (
     <a className="brand" href="/" aria-label="Keystone Commercial Partners home">
-      <span className="brand-mark" aria-hidden="true" />
-      <span className="brand-lockup">
-        <span className="brand-word">KEYSTONE</span>
-        <span className="brand-descriptor">Commercial Partners</span>
-      </span>
+      <img
+        className="brand-logo"
+        src="/keystone-logo-header.png"
+        alt="Keystone Commercial Partners"
+        width="1610"
+        height="325"
+      />
     </a>
   );
 }

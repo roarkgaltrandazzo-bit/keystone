@@ -28,6 +28,21 @@ test("homepage renders the final title and exactly one h1", async () => {
   assert.doesNotMatch(html, /codex-preview/);
 });
 
+test("homepage carries the approved service positioning", async () => {
+  const response = await requestPath("/");
+  const html = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(html, /price, sell, and run service agreements/i);
+  assert.match(html, /Every agreement creates five chances to win/i);
+  assert.match(html, /How industry leading contractors price, sell, and operate a successful service division/i);
+  assert.match(html, /Operating Value Today, Enterprise Value at Exit/i);
+  assert.match(html, /30 minutes\. 1 clear next move/i);
+  assert.doesNotMatch(html, /20 years in commercial service · Carrier and Johnson Controls/i);
+  assert.doesNotMatch(html, /Tom Randazzo has carried the number/i);
+  assert.doesNotMatch(html, /500 basis points/i);
+});
+
 test("privacy page states that scorecard answers are never transmitted", async () => {
   const response = await requestPath("/privacy");
   const html = await response.text();

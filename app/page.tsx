@@ -1,72 +1,22 @@
 import { AgreementLoop } from "./components/AgreementLoop";
+import { CoverageSystem } from "./components/CoverageSystem";
 import { InquiryForm } from "./components/InquiryForm";
 import { ServiceScorecard } from "./components/ServiceScorecard";
 import { PageShell } from "./components/SiteChrome";
 import { TrackedLink } from "./components/TrackedLink";
 
-const coverage = [
-  {
-    number: "01",
-    title: "Pricing",
-    text: "Labor hours by equipment type, your real burdened rate, and a margin you can hold. Two estimators quoting the same building land on the same number.",
-  },
-  {
-    number: "02",
-    title: "Agreement Structure",
-    text: "What's covered, what isn't, what the customer owes, and what happens when a unit goes down at two in the morning. Written so it can be sold, priced, and delivered without a phone call.",
-  },
-  {
-    number: "03",
-    title: "Renewals and Price Increases",
-    text: "A calendar, a named owner, a planned increase, and a customer conversation that starts before the agreement is already expired.",
-  },
-  {
-    number: "04",
-    title: "Target Account Selection",
-    text: "Your installed base, buildings where you already have credibility, and accounts with a reason to change. A list your sellers can actually work.",
-  },
-  {
-    number: "05",
-    title: "Repair Pull-Through",
-    text: "A field finding becomes an owned quote with a due date and a next step. Open quotes live in one place until the customer decides.",
-  },
-  {
-    number: "06",
-    title: "Replacement and Retrofit Capture",
-    text: "Equipment condition becomes a capital plan before the customer invites three contractors to bid. You shape the job instead of hearing about it late.",
-  },
-  {
-    number: "07",
-    title: "Service Sales Process",
-    text: "Clear stages, owners, next actions, and a weekly number. Sellers know where to spend time and managers can coach what is visible.",
-  },
-  {
-    number: "08",
-    title: "Technician Findings",
-    text: "What technicians document, how they explain it, where it goes, and who owns turning it into a customer decision.",
-  },
-  {
-    number: "09",
-    title: "Compensation",
-    text: "One person owns the service-growth number and meaningful variable pay moves with it. Everyone can tell what behavior the plan rewards.",
-  },
-];
-
 const contractorProfiles = [
   {
-    label: "A service base without a service system",
-    title: "You have agreements. The result still depends on who touches the account.",
-    text: "Pricing changes by seller, renewals start late, technician findings disappear, and nobody can give you next month's agreement hours without opening three spreadsheets.",
+    title: "Plan and Spec Contractors",
+    text: "You know how to win project work. Now you want the equipment you install to lead to maintenance agreements, repairs, upgrades, and replacements instead of handing the building to another service contractor.",
   },
   {
-    label: "A strong project contractor",
-    title: "You installed the equipment. Another contractor is maintaining it.",
-    text: "The project business is healthy, but closeout does not reliably become an agreement. You want the installed base to create recurring revenue and the next replacement.",
+    title: "Contractors with a handful of service agreements",
+    text: "You've proven customers will buy. Now you need a consistent way to price, sell, renew, and operate agreements so the service department can grow beyond a few accounts.",
   },
   {
-    label: "A next-generation leader",
-    title: "You inherited the number. Now you need a system the team can run.",
-    text: "You need clear ownership, pricing, targets, renewal routines, and visible measures before growth can stop depending on the owner.",
+    title: "Next generation leader",
+    text: "You're stepping into the business and want a service department that can grow without every pricing, sales, and renewal decision landing on the owner.",
   },
 ];
 
@@ -108,7 +58,7 @@ export default function Home() {
               <span className="hero-short">The money is in maintaining the equipment.</span>
             </h1>
             <p className="hero-lead">
-              Keystone helps independent commercial HVAC and mechanical contractors sell, price, and run service agreements that lead to repairs, replacements, and a service business the team can manage.
+              Keystone helps independent commercial HVAC and mechanical contractors price, sell, and run service agreements that lead to repairs, replacements, and a service business the team can manage.
             </p>
             <div className="hero-actions">
               <TrackedLink className="button button-accent" href="#contact" eventName="Call button click">
@@ -116,9 +66,6 @@ export default function Home() {
               </TrackedLink>
               <a className="text-link" href="#scorecard">Score your service business · 10 min · private</a>
             </div>
-            <p className="hero-proof">
-              20 years in commercial service · Carrier and Johnson Controls · Independent mechanical contractors
-            </p>
           </div>
 
           <figure className="hero-media">
@@ -129,7 +76,6 @@ export default function Home() {
               height="1067"
               fetchPriority="high"
             />
-            <figcaption>The installed base is already in the building.</figcaption>
           </figure>
         </div>
       </section>
@@ -138,18 +84,11 @@ export default function Home() {
         <div className="shell">
           <div className="section-heading section-heading-wide">
             <p className="eyebrow eyebrow-gold">Why agreements</p>
-            <h2>One agreement creates five chances to win.</h2>
-            <p>
-              The monthly maintenance revenue is only the first return. The position inside the building is what keeps compounding.
-            </p>
+            <h2>Every agreement creates five chances to win.</h2>
+            <p>The monthly recurring maintenance revenue is only one piece.</p>
           </div>
 
           <AgreementLoop />
-
-          <div className="loop-caption">
-            <p>The agreement is not the end product. It is the position that lets you see, quote, and own what comes next.</p>
-            <strong>Keystone helps your team turn the loop on purpose.</strong>
-          </div>
         </div>
       </section>
 
@@ -157,24 +96,13 @@ export default function Home() {
         <div className="shell">
           <div className="section-heading">
             <p className="eyebrow">What we cover</p>
-            <h2>The operating system behind a durable service base.</h2>
-            <p>
-              These are the pieces that make agreements consistent enough to sell, profitable enough to keep, and useful enough to pull the next job forward.
-            </p>
+            <h2>How industry leading contractors price, sell, and operate a successful service division:</h2>
           </div>
 
-          <div className="coverage-grid">
-            {coverage.map((item) => (
-              <article className="coverage-card" key={item.title}>
-                <span>{item.number}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </article>
-            ))}
-          </div>
+          <CoverageSystem />
 
           <p className="coverage-close">
-            Keystone builds these pieces inside your company, with the people who will keep running them after Tom is gone.
+            Keystone helps you build these pieces within your existing company
           </p>
         </div>
       </section>
@@ -183,23 +111,26 @@ export default function Home() {
         <div className="shell">
           <div className="section-heading">
             <p className="eyebrow">Who we work with</p>
-            <h2>Independent commercial contractors ready to run service like a business.</h2>
+            <h2>Independent commercial HVAC contractors who want to build or strengthen their service department</h2>
           </div>
 
           <div className="profile-grid">
             {contractorProfiles.map((profile) => (
-              <article className="profile-card" key={profile.label}>
-                <p className="profile-label">{profile.label}</p>
+              <article className="profile-card" key={profile.title}>
                 <h3>{profile.title}</h3>
                 <p>{profile.text}</p>
               </article>
             ))}
             <article className="profile-card profile-card-not">
-              <p className="profile-label">Not a fit</p>
-              <h3>Keystone is not outsourced selling, appointment setting, or a binder for the shelf.</h3>
-              <p>
-                The work requires a commercial service team willing to name owners, use the numbers, and keep the routines after the engagement ends. Residential-only contractors are outside the focus.
-              </p>
+              <h3>Not a fit</h3>
+              <ul>
+                <li>
+                  <strong>Contractors focused primarily on residential or new construction.</strong> Keystone is built and optimized for industrial and commercial HVAC service.
+                </li>
+                <li>
+                  <strong>Contractors below $3M to $5M in annual revenue.</strong> At that size, most companies don&apos;t yet have the management and operating infrastructure to absorb the growth a well-designed and well-executed service program can create.
+                </li>
+              </ul>
             </article>
           </div>
         </div>
@@ -210,12 +141,12 @@ export default function Home() {
           <div className="about-company">
             <div className="about-company-copy">
               <p className="eyebrow">About Keystone</p>
-              <h2>Company first. Consultant second.</h2>
+              <h2>Operating Value Today, Enterprise Value at Exit</h2>
               <p>
-                Keystone Commercial Partners helps independent commercial HVAC and mechanical contractors build service-agreement systems their own teams can run.
+                Keystone&apos;s service philosophy starts with operating value. A well-run service division gives you steadier revenue, higher-margin repair and replacement opportunities, better technician utilization, and deeper customer relationships. That makes the company more resilient and more profitable today.
               </p>
               <p>
-                Every engagement is built around your installed base, labor cost, market, managers, sellers, and technicians. The result is a practical operating system, not a generic playbook.
+                It also builds enterprise value. If and when an owner decides to step away, a durable service base with predictable revenue, strong margins, and customers who call you first can command a stronger valuation multiple.
               </p>
             </div>
             <figure className="blueprint-media">
@@ -241,17 +172,13 @@ export default function Home() {
             </figure>
             <div className="founder-copy">
               <p className="eyebrow">Founder</p>
-              <h2>Tom Randazzo has carried the number.</h2>
+              <h2>Tom Randazzo</h2>
               <p>
-                Tom has spent twenty years selling commercial service and leading the people responsible for it at Carrier, Johnson Controls, and privately held mechanical contractors.
+                Tom is the founder of Keystone Commercial Partners. He has spent 20 years in commercial HVAC and mechanical service, with experience at Carrier, Johnson Controls, and privately held mechanical contractors.
               </p>
               <p>
-                He has built agreement bases, repriced unprofitable ones, led service sellers, and worked beside service managers and technicians when the process had to hold up in the field.
+                His background includes service agreement sales, pricing, service sales leadership, and the handoff between sellers, service managers, and technicians. He founded Keystone to help independent contractors build stronger service departments inside the companies they already own.
               </p>
-              <div className="proof-statement">
-                <strong>+500 basis points</strong>
-                <span>At Johnson Controls, Tom expanded margin by 500 basis points while meeting the revenue goal.</span>
-              </div>
               <a
                 className="text-link"
                 href="https://www.linkedin.com/in/tom-randazzo-73b48947"
@@ -268,11 +195,7 @@ export default function Home() {
       <section className="dark-section closing-section" id="scorecard">
         <div className="shell">
           <div className="closing-heading">
-            <p className="eyebrow eyebrow-gold">Start with the leak</p>
-            <h2>Find the first place your service business is losing the next agreement.</h2>
-            <p>
-              Score the system privately, or bring Tom the three numbers that matter: service revenue, the share tied to agreements, and the number of agreements you carry.
-            </p>
+            <h2>Get started</h2>
           </div>
 
           <div className="closing-grid">
@@ -284,8 +207,8 @@ export default function Home() {
             </div>
 
             <aside className="contact-panel" id="contact">
-              <p className="eyebrow eyebrow-gold">Set up a call</p>
-              <h2>Thirty minutes. Three numbers. A clear first move.</h2>
+              <p className="eyebrow eyebrow-gold">Let&apos;s Talk</p>
+              <h2>30 minutes. 1 clear next move.</h2>
               <p>
                 There is no cost for the first call. Tom will tell you what he would change first, whether or not you work together.
               </p>

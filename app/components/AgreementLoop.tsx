@@ -2,63 +2,86 @@ const nodes = [
   "You sign the agreement",
   "Your techs are in the building, on a schedule",
   "They see it failing before it fails",
-  "You quote the repair. You're the first call.",
-  "The unit dies. You replace it.",
+  "You quote the repair, and you're the first call",
+  "The unit dies, and you replace it",
 ];
-
-function SvgNode({ x, y, number, children }: { x: number; y: number; number: number; children: string }) {
-  return (
-    <g className="loop-node">
-      <rect x={x} y={y} width="330" height="96" />
-      <foreignObject x={x + 20} y={y + 14} width="290" height="68">
-        <div className="loop-node-copy" xmlns="http://www.w3.org/1999/xhtml">
-          <span>{number}</span>
-          <strong>{children}</strong>
-        </div>
-      </foreignObject>
-    </g>
-  );
-}
 
 export function AgreementLoop() {
   return (
-    <div className="agreement-loop">
+    <div className="service-cycle">
       <svg
-        className="agreement-loop-desktop"
-        viewBox="0 0 1120 720"
+        className="service-cycle-desktop"
+        viewBox="0 0 1000 600"
         role="img"
-        aria-label="A cycle in which a contractor signs a service agreement, schedules technicians in the building, sees equipment problems early, quotes the repair first, replaces the unit when it dies, and puts the new unit back under agreement."
+        aria-labelledby="service-cycle-title service-cycle-description"
       >
+        <title id="service-cycle-title">The service agreement cycle</title>
+        <desc id="service-cycle-description">
+          Five stages arranged clockwise on a circle. You sign the agreement, your technicians are in the building on a schedule, they see equipment failing before it fails, you quote the repair and get the first call, and you replace the unit. The new unit then goes under agreement and the cycle repeats.
+        </desc>
+
         <defs>
-          <marker id="loop-arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L12,6 L0,12 z" />
+          <marker id="service-cycle-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+            <path d="M0,1 L9,5 L0,9 Z" />
           </marker>
         </defs>
-        <g className="loop-arrows" aria-hidden="true">
-          <path d="M725 84 C812 90 864 121 887 166" />
-          <path d="M955 264 C1035 334 995 430 905 482" />
-          <path d="M735 542 C645 648 500 652 405 558" />
-          <path d="M220 482 C118 420 105 326 166 264" />
-          <path d="M365 190 C382 146 412 122 459 117" />
+
+        <circle className="service-cycle-ring" cx="500" cy="340" r="205" />
+        <circle className="service-cycle-center" cx="500" cy="340" r="130" />
+
+        <g className="service-cycle-arrows">
+          <path d="M 535.60 138.11 A 205 205 0 0 1 681.00 243.76" />
+          <path d="M 703.01 311.47 A 205 205 0 0 1 647.47 482.41" />
+          <path d="M 589.87 524.25 A 205 205 0 0 1 410.13 524.25" />
+          <path d="M 352.53 482.41 A 205 205 0 0 1 296.99 311.47" />
+          <path d="M 319.00 243.76 A 205 205 0 0 1 464.40 138.11" />
         </g>
-        <SvgNode x={395} y={28} number={1}>{nodes[0]}</SvgNode>
-        <SvgNode x={760} y={170} number={2}>{nodes[1]}</SvgNode>
-        <SvgNode x={710} y={480} number={3}>{nodes[2]}</SvgNode>
-        <SvgNode x={75} y={480} number={4}>{nodes[3]}</SvgNode>
-        <SvgNode x={30} y={170} number={5}>{nodes[4]}</SvgNode>
-        <g className="loop-center">
-          <rect x="370" y="268" width="380" height="188" />
-          <foreignObject x="397" y="294" width="326" height="136">
-            <div className="loop-center-copy" xmlns="http://www.w3.org/1999/xhtml">
-              <strong>Then the new unit goes under agreement</strong>
-              <span>and it starts again</span>
-            </div>
-          </foreignObject>
+
+        <g>
+          <circle className="service-cycle-node" cx="500" cy="135" r="26" />
+          <text className="service-cycle-number" x="500" y="135" textAnchor="middle" dominantBaseline="central">1</text>
+          <text className="service-cycle-label" x="500" y="92" textAnchor="middle">You sign the agreement</text>
         </g>
+
+        <g>
+          <circle className="service-cycle-node" cx="695" cy="276.7" r="26" />
+          <text className="service-cycle-number" x="695" y="276.7" textAnchor="middle" dominantBaseline="central">2</text>
+          <text className="service-cycle-label" x="737" y="271" textAnchor="start">Your techs are in the</text>
+          <text className="service-cycle-label" x="737" y="293" textAnchor="start">building, on a schedule</text>
+        </g>
+
+        <g>
+          <circle className="service-cycle-node" cx="620.5" cy="505.9" r="26" />
+          <text className="service-cycle-number" x="620.5" y="505.9" textAnchor="middle" dominantBaseline="central">3</text>
+          <text className="service-cycle-label" x="662.5" y="500" textAnchor="start">They see it failing</text>
+          <text className="service-cycle-label" x="662.5" y="522" textAnchor="start">before it fails</text>
+        </g>
+
+        <g>
+          <circle className="service-cycle-node" cx="379.5" cy="505.9" r="26" />
+          <text className="service-cycle-number" x="379.5" y="505.9" textAnchor="middle" dominantBaseline="central">4</text>
+          <text className="service-cycle-label" x="337.5" y="500" textAnchor="end">You quote the repair,</text>
+          <text className="service-cycle-label" x="337.5" y="522" textAnchor="end">and you&apos;re the first call</text>
+        </g>
+
+        <g>
+          <circle className="service-cycle-node" cx="305" cy="276.7" r="26" />
+          <text className="service-cycle-number" x="305" y="276.7" textAnchor="middle" dominantBaseline="central">5</text>
+          <text className="service-cycle-label" x="263" y="271" textAnchor="end">The unit dies,</text>
+          <text className="service-cycle-label" x="263" y="293" textAnchor="end">and you replace it</text>
+        </g>
+
+        <text className="service-cycle-center-title" x="500" y="316" textAnchor="middle">Then the new unit goes</text>
+        <text className="service-cycle-center-title" x="500" y="344" textAnchor="middle">under agreement</text>
+        <text className="service-cycle-center-subtitle" x="500" y="378" textAnchor="middle">And the cycle starts again</text>
       </svg>
-      <ol className="agreement-loop-mobile" aria-label="The agreement cycle">
+
+      <ol className="service-cycle-mobile" aria-label="The service agreement cycle">
         {nodes.map((node) => <li key={node}>{node}</li>)}
-        <li><strong>Then the new unit goes under agreement</strong><span>and it starts again</span></li>
+        <li>
+          <strong>Then the new unit goes under agreement</strong>
+          <span>And the cycle starts again</span>
+        </li>
       </ol>
     </div>
   );
