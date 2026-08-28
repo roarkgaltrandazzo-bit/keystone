@@ -1,56 +1,44 @@
-import { primaryNavigation } from "../data";
+import type { ReactNode } from "react";
+import { TrackedLink } from "./TrackedLink";
 
-/* The same native PNG assets are served by both the app and static Pages builds. */
-/* eslint-disable @next/next/no-img-element */
-
-export function Brand({ variant = "header" }: { variant?: "header" | "footer" }) {
-  const isFooter = variant === "footer";
-
+export function Brand() {
   return (
     <a className="brand" href="/" aria-label="Keystone Commercial Partners home">
-      <img
-        alt="Keystone Commercial Partners"
-        className={`brand-logo brand-logo-${variant}`}
-        height={isFooter ? 485 : 325}
-        loading={isFooter ? "lazy" : "eager"}
-        src={isFooter ? "/keystone-logo.png" : "/keystone-logo-header.png"}
-        width={1610}
-      />
+      <span className="brand-mark" aria-hidden="true" />
+      <span className="brand-lockup">
+        <span className="brand-word">KEYSTONE</span>
+        <span className="brand-descriptor">Commercial Partners</span>
+      </span>
     </a>
   );
 }
 
+const navigation = [
+  { href: "/#why-agreements", label: "Why agreements" },
+  { href: "/#what-we-cover", label: "What we cover" },
+  { href: "/#who-we-work-with", label: "Who we work with" },
+  { href: "/#about", label: "About" },
+];
+
 export function SiteHeader() {
   return (
     <header className="site-header">
-      <a className="skip-link" href="#main-content">
-        Skip to content
-      </a>
+      <a className="skip-link" href="#main-content">Skip to content</a>
       <div className="shell header-inner">
         <Brand />
         <nav className="desktop-nav" aria-label="Primary navigation">
-          {primaryNavigation.map((item) => (
-            <a href={item.href} key={item.href}>
-              {item.label}
-            </a>
+          {navigation.map((item) => (
+            <a href={item.href} key={item.href}>{item.label}</a>
           ))}
-          <a className="button button-small button-accent" href="/book">
-            Book a fit call
-          </a>
         </nav>
-        <details className="mobile-menu">
-          <summary aria-label="Open navigation">Menu</summary>
-          <nav aria-label="Mobile navigation">
-            {primaryNavigation.map((item) => (
-              <a href={item.href} key={item.href}>
-                {item.label}
-              </a>
-            ))}
-            <a className="button button-accent" href="/book">
-              Book a fit call
-            </a>
-          </nav>
-        </details>
+        <div className="header-actions">
+          <TrackedLink className="header-phone" href="tel:+19205854179" eventName="Phone link tap">
+            920-585-4179
+          </TrackedLink>
+          <TrackedLink className="button button-small button-accent" href="/#contact" eventName="Call button click">
+            Set up a call
+          </TrackedLink>
+        </div>
       </div>
     </header>
   );
@@ -59,43 +47,24 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="site-footer">
-      <div className="shell footer-grid">
-        <div>
-          <Brand variant="footer" />
-          <p className="footer-positioning">
-            Service program advisory for commercial and industrial mechanical contractors.
-          </p>
-          <p className="footer-location">Based in Appleton, Wisconsin.</p>
-        </div>
-        <div>
-          <p className="footer-heading">Navigate</p>
-          <div className="footer-links">
-            <a href="/assessment">Service Program Assessment</a>
-            <a href="/self-score">Self-score your shop</a>
-            <a href="/about">About Tom</a>
-            <a href="/book">Book a fit call</a>
-          </div>
-        </div>
-        <div>
-          <p className="footer-heading">Contact</p>
-          <div className="footer-links">
-            <a href="mailto:tom@keystonecommercialpartners.com">
-              tom@keystonecommercialpartners.com
-            </a>
-            <a href="tel:+19205854179">920-585-4179</a>
-            <a href="/privacy">Privacy</a>
-          </div>
-        </div>
-      </div>
-      <div className="shell footer-bottom">
-        <span>© {new Date().getFullYear()} Keystone Commercial Partners</span>
-        <span>Stronger service economics. More durable company value.</span>
+      <div className="shell footer-lines">
+        <p>
+          Appleton, Wisconsin <span aria-hidden="true">·</span>{" "}
+          <a href="mailto:tom@keystonecommercialpartners.com">tom@keystonecommercialpartners.com</a>{" "}
+          <span aria-hidden="true">·</span>{" "}
+          <TrackedLink href="tel:+19205854179" eventName="Phone link tap">920-585-4179</TrackedLink>{" "}
+          <span aria-hidden="true">·</span>{" "}
+          <a href="https://www.linkedin.com/in/tom-randazzo-73b48947" rel="noreferrer" target="_blank">LinkedIn</a>
+        </p>
+        <p>
+          © 2026 Keystone Commercial Partners <span aria-hidden="true">·</span> <a href="/privacy">Privacy</a>
+        </p>
       </div>
     </footer>
   );
 }
 
-export function PageShell({ children }: { children: React.ReactNode }) {
+export function PageShell({ children }: { children: ReactNode }) {
   return (
     <>
       <SiteHeader />

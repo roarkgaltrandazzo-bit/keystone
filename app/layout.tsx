@@ -1,52 +1,58 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Barlow, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const bodyFont = Barlow({
+  variable: "--font-body",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const displayFont = Barlow_Condensed({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: ["600", "700"],
+  display: "swap",
 });
+
+const title = "Commercial Service Agreements for Mechanical Contractors | Keystone Commercial Partners";
+const description = "There's more money in maintaining commercial mechanical equipment than installing it. Keystone helps contractors sell, price, and run service agreements.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.keystonecommercialpartners.com"),
-  title: {
-    default: "Commercial Service Growth for Mechanical Contractors | Keystone Commercial Partners",
-    template: "%s | Keystone Commercial Partners",
-  },
-  description:
-    "Keystone helps commercial HVAC and mechanical contractors structure, price, sell, renew, and run a bigger service business.",
+  title,
+  description,
+  alternates: { canonical: "/" },
+  icons: { icon: "/favicon.svg" },
   openGraph: {
-    title: "Your Service Base Grew One Agreement at a Time. Now It Needs a Plan.",
-    description: "Commercial service growth for independent HVAC and mechanical contractors.",
+    title,
+    description,
     type: "website",
-    url: "https://www.keystonecommercialpartners.com/",
-    images: [{
-      url: "https://www.keystonecommercialpartners.com/og.png",
-      width: 1200,
-      height: 630,
-      alt: "Your service base grew one agreement at a time. Now it needs a plan.",
-    }],
+    url: "/",
+    siteName: "Keystone Commercial Partners",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Keystone Commercial Partners" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Your Service Base Grew One Agreement at a Time. Now It Needs a Plan.",
-    description: "Commercial service growth for independent HVAC and mechanical contractors.",
-    images: ["https://www.keystonecommercialpartners.com/og.png"],
-  },
-  other: {
-    "codex-preview": "development",
+    title,
+    description,
+    images: ["/og.png"],
   },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js');window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};",
+          }}
+        />
+        <script defer data-domain="keystonecommercialpartners.com" src="https://plausible.io/js/script.js" />
+      </head>
+      <body className={bodyFont.variable + " " + displayFont.variable}>{children}</body>
     </html>
   );
 }
