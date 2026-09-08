@@ -17,43 +17,63 @@ async function requestPath(path) {
   );
 }
 
-test("homepage renders the final title and exactly one h1", async () => {
-  const response = await requestPath("/");
+async function expectPage(path, expected) {
+  const response = await requestPath(path);
   const html = await response.text();
 
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
-  assert.match(html, /Commercial Service Agreements for Mechanical Contractors \| Keystone Commercial Partners/);
   assert.equal((html.match(/<h1\b/gi) ?? []).length, 1);
+  assert.match(html, expected);
   assert.doesNotMatch(html, /codex-preview/);
+  return html;
+}
+
+test("homepage renders the new service-growth positioning", async () => {
+  const html = await expectPage("/", /Service builds recurring revenue/i);
+
+  assert.match(html, /Every agreement creates more than revenue/i);
+  assert.match(html, /This is not a lead service/i);
+  assert.match(html, /Operating value today\. Enterprise value tomorrow/i);
+  assert.match(html, /Established commercial mechanical contractors/i);
+  assert.doesNotMatch(html, /Score your service business/i);
+  assert.doesNotMatch(html, /Have Tom call me/i);
 });
 
-test("homepage carries the approved service positioning", async () => {
-  const response = await requestPath("/");
-  const html = await response.text();
+test("service model page explains the compounding path", async () => {
+  const html = await expectPage("/service-model", /A stronger service business compounds over time/i);
 
-  assert.equal(response.status, 200);
-  assert.match(html, /price, sell, and run service agreements/i);
-  assert.match(html, /Every agreement creates five chances to win/i);
-  assert.match(html, /How industry leading contractors price, sell, and operate a successful service division/i);
-  assert.match(html, /Operating Value Today, Enterprise Value at Exit/i);
-  assert.match(html, /30 minutes\. 1 clear next move/i);
-  assert.doesNotMatch(html, /20 years in commercial service · Carrier and Johnson Controls/i);
-  assert.doesNotMatch(html, /Tom Randazzo has carried the number/i);
-  assert.doesNotMatch(html, /500 basis points/i);
+  assert.match(html, /Maintenance agreement/i);
+  assert.match(html, /Convert technician findings/i);
+  assert.match(html, /Enterprise value follows/i);
 });
 
-test("privacy page states that scorecard answers are never transmitted", async () => {
-  const response = await requestPath("/privacy");
-  const html = await response.text();
+test("how we work page renders all three engagement phases", async () => {
+  const html = await expectPage("/how-we-work", /Assess the business\. Build the system\. Run it with your team/i);
 
-  assert.equal(response.status, 200);
-  assert.match(html, /answers and score are never transmitted/i);
-  assert.match(html, /Plausible Analytics/);
+  assert.match(html, /Service Performance &amp; Market Assessment/i);
+  assert.match(html, /Typically 60–90 days/i);
+  assert.match(html, /What Keystone is not/i);
 });
 
-test("removed legacy pages return the custom 404", async () => {
-  const response = await requestPath("/about");
+test("about page carries the direct-engagement positioning", async () => {
+  const html = await expectPage("/about", /The person you hire stays inside the business/i);
+
+  assert.match(html, /Carrier, Johnson Controls, and privately held mechanical contractors/i);
+  assert.match(html, /Tom leads every engagement/i);
+  assert.match(html, /Based in Appleton\. Focused on the Midwest/i);
+});
+
+test("privacy page reflects the simplified contact model", async () => {
+  const html = await expectPage("/privacy", /How Keystone handles your information/i);
+
+  assert.match(html, /does not sell personal information/i);
+  assert.match(html, /Plausible Analytics/i);
+  assert.doesNotMatch(html, /scorecard/i);
+});
+
+test("unknown pages return the custom 404", async () => {
+  const response = await requestPath("/old-page");
   const html = await response.text();
 
   assert.equal(response.status, 404);

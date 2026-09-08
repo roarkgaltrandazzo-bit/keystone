@@ -17,6 +17,9 @@ export default defineConfig({
     rollupOptions: {
       input: [
         resolve(pagesRoot, "index.html"),
+        resolve(pagesRoot, "service-model/index.html"),
+        resolve(pagesRoot, "how-we-work/index.html"),
+        resolve(pagesRoot, "about/index.html"),
         resolve(pagesRoot, "privacy/index.html"),
         resolve(pagesRoot, "404.html"),
       ],

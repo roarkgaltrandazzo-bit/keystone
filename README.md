@@ -2,21 +2,19 @@
 
 Website for Tom Randazzo's commercial HVAC and mechanical service-growth practice.
 
-The page is built around one idea: a maintenance agreement creates scheduled revenue, puts technicians inside the building, earns the first call, and leads to the next repair, retrofit, or replacement.
+The site is designed to help a referred contractor verify three things quickly:
 
-## Main page
+- Keystone specializes in commercial mechanical service
+- The service model connects maintenance agreements to repairs, projects, upgrades, and replacements
+- Tom works directly with the contractor's people to assess, build, and run the system
 
-- Owner situations Tom usually walks into
-- Five-step maintenance-base loop
-- Structure, pricing, selling, renewing, and operating support
-- Three-part engagement
-- Career proof and background
-- Thirty-minute service review form
-- Twelve-question Service Base Scorecard
+## Pages
 
-## Forms
-
-Service review submissions and requested scorecard breakdowns are saved to D1 through `/api/leads`. The public GitHub Pages build posts to the same hosted endpoint.
+- Home
+- Service Model
+- How We Work
+- About
+- Privacy
 
 ## Local development
 
@@ -31,7 +29,7 @@ npm run dev
 
 ```bash
 npm run lint
-npm run build
+npm test
 npm run build:pages
 ```
 
