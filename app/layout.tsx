@@ -1,23 +1,9 @@
 import type { Metadata } from "next";
-import { Barlow, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 
-const bodyFont = Barlow({
-  variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  display: "swap",
-});
-
-const displayFont = Barlow_Condensed({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["600", "700"],
-  display: "swap",
-});
-
-const title = "Commercial Service Agreements for Mechanical Contractors | Keystone Commercial Partners";
-const description = "There's more money in maintaining commercial mechanical equipment than installing it. Keystone helps contractors price, sell, and run service agreements.";
+const title = "Commercial Service Growth for Mechanical Contractors | Keystone Commercial Partners";
+const socialTitle = "Most Service Bases Were Never Built. They Accumulated.";
+const description = "Keystone helps commercial HVAC and mechanical contractors structure, price, sell, renew, and run a bigger service business.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.keystonecommercialpartners.com"),
@@ -26,7 +12,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   icons: { icon: "/favicon.svg" },
   openGraph: {
-    title,
+    title: socialTitle,
     description,
     type: "website",
     url: "/",
@@ -35,7 +21,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title,
+    title: socialTitle,
     description,
     images: ["/og.png"],
   },
@@ -52,7 +38,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         />
         <script defer data-domain="keystonecommercialpartners.com" src="https://plausible.io/js/script.js" />
       </head>
-      <body className={bodyFont.variable + " " + displayFont.variable}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

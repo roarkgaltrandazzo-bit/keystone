@@ -8,7 +8,7 @@ export default function NotFound() {
           <p className="eyebrow">404</p>
           <h1>This page doesn&apos;t exist.</h1>
           <p>The Keystone site is one page. The link you followed isn&apos;t part of it.</p>
-          <a className="button button-accent" href="/">Go to the homepage</a>
+          <a className="button button-primary" href="/">Go to the homepage</a>
         </div>
       </section>
     </PageShell>
