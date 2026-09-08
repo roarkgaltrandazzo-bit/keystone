@@ -18,9 +18,9 @@ export function Brand() {
 }
 
 const navigation = [
-  { href: "/#why-agreements", label: "Why agreements" },
-  { href: "/#what-we-cover", label: "What we cover" },
-  { href: "/#who-we-work-with", label: "Who we work with" },
+  { href: "/#why-the-base-wins", label: "Why the base wins" },
+  { href: "/#what-i-do", label: "What I do" },
+  { href: "/#how-it-works", label: "How it works" },
   { href: "/#about", label: "About" },
 ];
 
@@ -28,7 +28,7 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <a className="skip-link" href="#main-content">Skip to content</a>
-      <div className="shell header-inner">
+      <div className="site-frame header-inner">
         <Brand />
         <nav className="desktop-nav" aria-label="Primary navigation">
           {navigation.map((item) => (
@@ -39,8 +39,8 @@ export function SiteHeader() {
           <TrackedLink className="header-phone" href="tel:+19205854179" eventName="Phone link tap">
             920-585-4179
           </TrackedLink>
-          <TrackedLink className="button button-small button-accent" href="/#contact" eventName="Call button click">
-            Set up a call
+          <TrackedLink className="button button-small button-primary header-cta" href="/#contact" eventName="Call button click">
+            Book a service review
           </TrackedLink>
         </div>
       </div>
@@ -51,9 +51,9 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="site-footer">
-      <div className="shell footer-lines">
+      <div className="site-frame footer-lines">
         <p>
-          Based in Appleton, WI. Serving contractors throughout the midwest <span aria-hidden="true">·</span>{" "}
+          Based in Appleton, WI. Serving contractors throughout the Midwest <span aria-hidden="true">·</span>{" "}
           <a href="mailto:tom@keystonecommercialpartners.com">tom@keystonecommercialpartners.com</a>{" "}
           <span aria-hidden="true">·</span>{" "}
           <TrackedLink href="tel:+19205854179" eventName="Phone link tap">920-585-4179</TrackedLink>{" "}
@@ -74,6 +74,9 @@ export function PageShell({ children }: { children: ReactNode }) {
       <SiteHeader />
       <main id="main-content">{children}</main>
       <SiteFooter />
+      <TrackedLink className="mobile-sticky-cta" href="/#contact" eventName="Call button click">
+        Book a service review
+      </TrackedLink>
     </>
   );
 }

@@ -159,20 +159,20 @@ export function ServiceScorecard() {
     <div className="scorecard-js">
       {!open ? (
         <div className="scorecard-launch">
-          <p className="eyebrow eyebrow-gold">Assessment</p>
-          <h3>Assess your current service business</h3>
-          <p>Twelve questions. No gate. Your answers stay in this browser.</p>
-          <button className="button button-light" type="button" onClick={begin}>
-            Score your service business
+          <p className="section-label">Private score</p>
+          <h3>Score the base you’re carrying.</h3>
+          <p>The result shows immediately. Keystone never receives your answers.</p>
+          <button className="button button-primary" type="button" onClick={begin}>
+            Take the service base scorecard
           </button>
-          <small>10 min · private</small>
+          <small>5 min · private</small>
         </div>
       ) : (
         <div className="scorecard-open">
           <div className="scorecard-heading">
             <div>
-              <p className="eyebrow eyebrow-gold">Service base scorecard</p>
-              <h3>Answer from what happens every week, not what the process says.</h3>
+              <p className="section-label">Service base scorecard</p>
+              <h3>Answer from what happens every week.</h3>
             </div>
             <p>{Object.keys(answers).length} / {questions.length} answered</p>
           </div>
@@ -211,7 +211,7 @@ export function ServiceScorecard() {
                 <span>/ 24</span>
               </div>
               <div className="score-result-copy">
-                <p className="eyebrow">Your result</p>
+                <p className="section-label">Your result</p>
                 <h3>{scoreBand(total)}</h3>
                 <div className="weakest-area">
                   <span>Start here</span>
@@ -220,11 +220,11 @@ export function ServiceScorecard() {
                 </div>
                 <div className="score-actions">
                   <TrackedLink
-                    className="button button-accent"
+                    className="button button-primary"
                     href="/#contact"
                     eventName="Call button click"
                   >
-                    Talk through the result
+                    Book a service review
                   </TrackedLink>
                   <a
                     className="text-link-light"

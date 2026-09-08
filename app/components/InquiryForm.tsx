@@ -32,7 +32,7 @@ export function InquiryForm() {
     setSubmitted(true);
     window.location.href =
       "mailto:tom@keystonecommercialpartners.com?subject=" +
-      encodeURIComponent("Keystone call request") +
+      encodeURIComponent("Keystone service review request") +
       "&body=" +
       encodeURIComponent(body);
   }
@@ -40,7 +40,7 @@ export function InquiryForm() {
   if (submitted) {
     return (
       <div className="form-success" role="status" aria-live="polite">
-        Got it. Tom will call you within a business day.
+        Got it. I’ll call you within a business day.
       </div>
     );
   }
@@ -80,7 +80,7 @@ export function InquiryForm() {
         />
       </div>
       <p className="form-requirement">Name and company are required. Add either an email or phone number.</p>
-      <button className="button button-accent" type="submit">Have Tom call me</button>
+      <button className="button button-primary" type="submit">Book the service review</button>
     </form>
   );
 }

@@ -17,30 +17,38 @@ async function requestPath(path) {
   );
 }
 
-test("homepage renders the final title and exactly one h1", async () => {
+test("homepage renders the approved title and exactly one h1", async () => {
   const response = await requestPath("/");
   const html = await response.text();
 
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
-  assert.match(html, /Commercial Service Agreements for Mechanical Contractors \| Keystone Commercial Partners/);
+  assert.match(html, /Commercial Service Growth for Mechanical Contractors \| Keystone Commercial Partners/);
   assert.equal((html.match(/<h1\b/gi) ?? []).length, 1);
+  assert.match(html, /Most service bases were never built/);
+  assert.match(html, /They accumulated/);
   assert.doesNotMatch(html, /codex-preview/);
 });
 
-test("homepage carries the approved service positioning", async () => {
+test("homepage carries the service-base operating model", async () => {
   const response = await requestPath("/");
   const html = await response.text();
 
   assert.equal(response.status, 200);
-  assert.match(html, /price, sell, and run service agreements/i);
-  assert.match(html, /Every agreement creates five chances to win/i);
-  assert.match(html, /How industry leading contractors price, sell, and operate a successful service division/i);
-  assert.match(html, /Operating Value Today, Enterprise Value at Exit/i);
-  assert.match(html, /30 minutes\. 1 clear next move/i);
-  assert.doesNotMatch(html, /20 years in commercial service · Carrier and Johnson Controls/i);
-  assert.doesNotMatch(html, /Tom Randazzo has carried the number/i);
-  assert.doesNotMatch(html, /500 basis points/i);
+  assert.match(html, /Every agreement you sign buys you four things/i);
+  assert.match(html, /Qualification/);
+  assert.match(html, /Survey data/);
+  assert.match(html, /Equipment grading/);
+  assert.match(html, /Coverage eligibility/);
+  assert.match(html, /Management cadence/);
+  assert.match(html, /Focused commercial consulting/);
+  assert.match(html, /Commercial service system build/);
+  assert.match(html, /Fractional commercial leadership/);
+  assert.match(html, /\$25K to \$45K/);
+  assert.match(html, /Book a service review/i);
+  assert.doesNotMatch(html, /one contractor per market/i);
+  assert.doesNotMatch(html, /territory exclusivity/i);
+  assert.doesNotMatch(html, />[^<]*the work[^<]*</i);
 });
 
 test("privacy page states that scorecard answers are never transmitted", async () => {
