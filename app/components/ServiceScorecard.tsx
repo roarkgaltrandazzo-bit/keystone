@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { trackEvent, TrackedLink } from "./TrackedLink";
+import { useState } from "react";
 
 type ScoreArea = "Agreement sales" | "Pricing" | "Renewals" | "Repair pull-through" | "Planning";
 type Answer = 0 | 1 | 2;
@@ -107,21 +106,14 @@ function scoreBand(score: number) {
 export function ServiceScorecard() {
   const [open, setOpen] = useState(false);
   const [answers, setAnswers] = useState<Record<number, Answer>>({});
-  const completionTracked = useRef(false);
 
   function begin() {
-    trackEvent("Scorecard start");
     setOpen(true);
   }
 
   function answerQuestion(index: number, value: Answer) {
     const next = { ...answers, [index]: value };
     setAnswers(next);
-
-    if (Object.keys(next).length === questions.length && !completionTracked.current) {
-      completionTracked.current = true;
-      trackEvent("Scorecard completion");
-    }
   }
 
   const complete = Object.keys(answers).length === questions.length;
@@ -151,7 +143,7 @@ export function ServiceScorecard() {
           weakestArea +
           "\n\n" +
           areaMessages[weakestArea] +
-          "\n\nhttps://www.keystonecommercialpartners.com/#scorecard",
+          "\n\nhttps://www.keystonecommercialpartners.com/scorecard/",
       )
     : "";
 
@@ -219,13 +211,12 @@ export function ServiceScorecard() {
                   <p>{areaMessages[weakestArea]}</p>
                 </div>
                 <div className="score-actions">
-                  <TrackedLink
+                  <a
                     className="button button-primary"
                     href="/#contact"
-                    eventName="Call button click"
                   >
-                    Book a service review
-                  </TrackedLink>
+                    Contact Tom
+                  </a>
                   <a
                     className="text-link-light"
                     href={"mailto:?subject=" + encodeURIComponent("My Keystone service score") + "&body=" + emailBody}

@@ -7,7 +7,7 @@ export default function NotFound() {
         <div className="narrow-shell">
           <p className="eyebrow">404</p>
           <h1>This page doesn&apos;t exist.</h1>
-          <p>The Keystone site is one page. The link you followed isn&apos;t part of it.</p>
+          <p>The link you followed isn&apos;t active.</p>
           <a className="button button-primary" href="/">Go to the homepage</a>
         </div>
       </section>

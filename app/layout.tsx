@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const title = "Commercial Service Growth for Mechanical Contractors | Keystone Commercial Partners";
-const socialTitle = "Most Service Bases Were Never Built. They Accumulated.";
-const description = "Keystone helps commercial HVAC and mechanical contractors structure, price, sell, renew, and run a bigger service business.";
+const title = "Commercial Service Programs for Mechanical Contractors | Keystone Commercial Partners";
+const socialTitle = "Keystone Commercial Partners";
+const description = "Keystone provides service agreement programs for commercial and industrial mechanical contractors.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.keystonecommercialpartners.com"),
@@ -31,6 +31,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <head>
+        <link rel="preload" href="/fonts/jost-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <script
           dangerouslySetInnerHTML={{
             __html: "document.documentElement.classList.add('js');window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};",

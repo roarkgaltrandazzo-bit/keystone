@@ -1,12 +1,19 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { trackEvent } from "./TrackedLink";
 
-export function InquiryForm() {
-  const [submitted, setSubmitted] = useState(false);
+const formEndpoint = "https://formsubmit.co/ajax/tom@keystonecommercialpartners.com";
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+export function InquiryForm() {
+  const loadedAt = useRef<number | null>(null);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  useEffect(() => {
+    loadedAt.current = Date.now();
+  }, []);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
@@ -21,32 +28,60 @@ export function InquiryForm() {
       return;
     }
 
-    const body = [
-      "Name: " + value("name"),
-      "Company: " + value("company"),
-      "Email: " + (email || "Not provided"),
-      "Phone: " + (phone || "Not provided"),
-    ].join("\n");
+    if (value("_honey")) {
+      setStatus("sent");
+      return;
+    }
 
-    trackEvent("Contact form submission");
-    setSubmitted(true);
-    window.location.href =
-      "mailto:tom@keystonecommercialpartners.com?subject=" +
-      encodeURIComponent("Keystone service review request") +
-      "&body=" +
-      encodeURIComponent(body);
+    if (loadedAt.current !== null && Date.now() - loadedAt.current < 1200) {
+      setStatus("error");
+      return;
+    }
+
+    setStatus("sending");
+
+    try {
+      const response = await fetch(formEndpoint, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: value("name"),
+          company: value("company"),
+          email: email || "Not provided",
+          phone: phone || "Not provided",
+          _subject: "New Keystone website inquiry",
+          _template: "table",
+          _captcha: "false",
+          _honey: "",
+        }),
+      });
+
+      if (!response.ok) throw new Error("Submission failed");
+
+      const result = await response.json() as { success?: string | boolean };
+      if (result.success === false || result.success === "false") throw new Error("Submission failed");
+
+      trackEvent("Form submission");
+      form.reset();
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
   }
 
-  if (submitted) {
+  if (status === "sent") {
     return (
       <div className="form-success" role="status" aria-live="polite">
-        Got it. I’ll call you within a business day.
+        Thank you. I’ll contact you within one business day.
       </div>
     );
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit}>
+    <form className="contact-form" onSubmit={handleSubmit} noValidate={false}>
       <div className="field">
         <label htmlFor="contact-name">Name</label>
         <input id="contact-name" name="name" autoComplete="name" required />
@@ -62,7 +97,11 @@ export function InquiryForm() {
           name="email"
           type="email"
           autoComplete="email"
-          onInput={(event) => event.currentTarget.setCustomValidity("")}
+          onInput={(event) => {
+            event.currentTarget.setCustomValidity("");
+            const phoneInput = event.currentTarget.form?.elements.namedItem("phone") as HTMLInputElement | null;
+            phoneInput?.setCustomValidity("");
+          }}
         />
       </div>
       <div className="field">
@@ -79,8 +118,19 @@ export function InquiryForm() {
           }}
         />
       </div>
-      <p className="form-requirement">Name and company are required. Add either an email or phone number.</p>
-      <button className="button button-primary" type="submit">Book the service review</button>
+      <div className="honey-field" aria-hidden="true">
+        <label htmlFor="contact-website">Website</label>
+        <input id="contact-website" name="_honey" tabIndex={-1} autoComplete="off" />
+      </div>
+      <div className="form-action">
+        <button type="submit" disabled={status === "sending"}>
+          {status === "sending" ? "Sending" : "Send"}
+        </button>
+        <p>Name and company are required. Add either an email or phone number.</p>
+      </div>
+      {status === "error" ? (
+        <p className="form-error" role="alert">The form didn’t send. Please wait a moment and try again, or use the phone or email above.</p>
+      ) : null}
     </form>
   );
 }

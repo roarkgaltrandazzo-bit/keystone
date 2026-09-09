@@ -17,7 +17,14 @@ export default defineConfig({
     rollupOptions: {
       input: [
         resolve(pagesRoot, "index.html"),
+        resolve(pagesRoot, "scorecard/index.html"),
         resolve(pagesRoot, "privacy/index.html"),
+        resolve(pagesRoot, "commercial-architecture/index.html"),
+        resolve(pagesRoot, "commercial-architecture.html"),
+        resolve(pagesRoot, "about/index.html"),
+        resolve(pagesRoot, "assessment/index.html"),
+        resolve(pagesRoot, "book/index.html"),
+        resolve(pagesRoot, "self-score/index.html"),
         resolve(pagesRoot, "404.html"),
       ],
     },
