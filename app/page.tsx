@@ -175,7 +175,7 @@ export default function Home() {
       <section className="section section-observations" aria-labelledby="observations-title">
         <div className="content-wide editorial-grid">
           <header>
-            <SectionMarker number="03" title="What We See Most Often" />
+            <SectionMarker number="02" title="What We See Most Often" />
             <h2 id="observations-title">The backlog is scheduled through August, but January work is uncertain.</h2>
           </header>
           <div className="prose-stack">
@@ -196,7 +196,7 @@ export default function Home() {
       <section className="section section-case" id="case" aria-labelledby="case-title">
         <div className="content-wide">
           <header className="section-heading">
-            <SectionMarker number="04" title="The Case for Service" />
+            <SectionMarker number="03" title="The Case for Service" />
             <h2 id="case-title">Every agreement you sign pays four times.</h2>
             <p>A project generates revenue once and ends. An agreement delivers recurring monthly revenue, scheduled team access, priority for service calls, and opportunities for equipment replacements. Pricing regularly reflects only the initial benefit, while the others are overlooked.</p>
           </header>
@@ -215,7 +215,7 @@ export default function Home() {
       <section className="section section-build" id="build" aria-labelledby="build-title">
         <div className="content-wide">
           <header className="section-heading section-heading-narrow">
-            <SectionMarker number="05" title="What We Build" />
+            <SectionMarker number="04" title="What We Build" />
             <h2 id="build-title">A service agreement results from nine key decisions, each influencing the next.</h2>
             <p>The survey informs tasking, tasking affects pricing, and scope determines weekly service requirements.</p>
           </header>
@@ -234,7 +234,7 @@ export default function Home() {
       <section className="section section-how" id="how" aria-labelledby="how-title">
         <div className="content-wide editorial-grid">
           <header>
-            <SectionMarker number="06" title="How We Work" />
+            <SectionMarker number="05" />
             <h2 id="how-title">How We Work</h2>
           </header>
           <div className="prose-stack prose-long">
@@ -249,7 +249,7 @@ export default function Home() {
       <section className="section section-fit" id="fit" aria-labelledby="fit-title">
         <div className="content-wide editorial-grid">
           <header>
-            <SectionMarker number="07" title="Who This Works For" />
+            <SectionMarker number="06" title="Who This Works For" />
             <h2 id="fit-title">Keystone works with four to six contractors at a time, concentrating on long-term engagements instead of short-term projects.</h2>
           </header>
           <div className="prose-stack">
@@ -269,7 +269,7 @@ export default function Home() {
       <section className="section section-about" id="about" aria-labelledby="about-title">
         <div className="content-wide about-grid">
           <header className="about-heading">
-            <SectionMarker number="08" title="Where This Comes From" />
+            <SectionMarker number="07" title="Where This Comes From" />
             <h2 id="about-title">Twenty years in commercial service.</h2>
           </header>
           <picture className="headshot">
@@ -294,7 +294,7 @@ export default function Home() {
 
       <section className="section section-contact" id="contact" aria-labelledby="contact-title">
         <div className="content-wide contact-inner">
-          <SectionMarker number="09" title="Contact" light />
+          <SectionMarker number="08" title="Contact" light />
           <h2 id="contact-title">Thirty minutes on the phone.</h2>
           <div className="contact-copy prose-stack">
             <p>There’s nothing to prepare and no numbers to gather. Tell me how service operates today, who sells it, and what happens at renewal. I’ll share what I’d review first and whether it’s worth proceeding. If I’m not the right person for your needs, I’ll let you know.</p>
