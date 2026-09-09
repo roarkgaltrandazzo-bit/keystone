@@ -41,7 +41,7 @@ export default function PrivacyPage() {
           <section className="privacy-block">
             <h2>The contact form</h2>
             <p>The form asks for four fields: name, company, email, and phone. Name and company are required. You may provide either email or phone as your contact method.</p>
-            <p>Submitting the form sends those details through FormSubmit to tom@keystonecommercialpartners.com. Keystone uses the information only to respond to your request. FormSubmit retains submissions for up to 30 days.</p>
+            <p>Submitting the form opens a preaddressed email in your device&apos;s email application. Your details are not sent to Keystone unless you send that email.</p>
             <p>There is no marketing list, automated sequence, or sale of submitted contact information.</p>
           </section>
 
