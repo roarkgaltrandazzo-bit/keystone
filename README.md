@@ -19,7 +19,7 @@ The twelve-question Service Base Scorecard lives at `/scorecard`. It is unlinked
 
 ## Forms
 
-Contact submissions are sent to Tom through FormSubmit. The form requires name and company plus either email or phone, and uses a honeypot and elapsed-time check without a visible CAPTCHA.
+The contact form opens a preaddressed email to Tom. It requires name and company plus either email or phone, and uses a honeypot and elapsed-time check without a visible CAPTCHA.
 
 ## Local development
 
