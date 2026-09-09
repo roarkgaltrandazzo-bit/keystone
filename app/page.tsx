@@ -194,6 +194,16 @@ export default function Home() {
           <header>
             <SectionMarker number="02" title="What We See Most Often" />
             <h2 id="observations-title">The backlog is scheduled through August, but January work is uncertain.</h2>
+            <figure className="section-visual section-visual-photo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/commercial-rooftop.webp"
+                alt="Commercial rooftop air-handling equipment and ductwork"
+                width="1536"
+                height="1024"
+                loading="lazy"
+              />
+            </figure>
           </header>
           <div className="prose-stack">
             <p>This recurring cycle of short-term busyness and long-term uncertainty complicates planning, staffing, and financial stability. Unpredictable workloads force contractors into short-term decisions, making it difficult to invest in growth or maintain steady workloads.</p>
@@ -245,11 +255,23 @@ export default function Home() {
 
       <section className="section section-build" id="build" aria-labelledby="build-title">
         <div className="content-wide">
-          <header className="section-heading section-heading-narrow">
-            <SectionMarker number="04" title="What We Build" />
-            <h2 id="build-title">A service agreement results from nine key decisions, each influencing the next.</h2>
-            <p>The survey informs tasking, tasking affects pricing, and scope determines weekly service requirements.</p>
-          </header>
+          <div className="build-intro-grid">
+            <header className="section-heading section-heading-narrow">
+              <SectionMarker number="04" title="What We Build" />
+              <h2 id="build-title">A service agreement results from nine key decisions, each influencing the next.</h2>
+              <p>The survey informs tasking, tasking affects pricing, and scope determines weekly service requirements.</p>
+            </header>
+            <figure className="section-visual section-visual-photo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/bas-controls.webp"
+                alt="Building automation controls in a commercial mechanical room"
+                width="1536"
+                height="1024"
+                loading="lazy"
+              />
+            </figure>
+          </div>
           <ol className="build-register">
             {buildDecisions.map((item) => (
               <li key={item.number}>
@@ -267,6 +289,16 @@ export default function Home() {
           <header>
             <SectionMarker number="05" />
             <h2 id="how-title">How We Work</h2>
+            <figure className="section-visual section-visual-blueprint">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/boiler-room-blueprint.webp"
+                alt="Blueprint-style drawing of a commercial boiler room with hydronic pumps and piping"
+                width="1664"
+                height="936"
+                loading="lazy"
+              />
+            </figure>
           </header>
           <div className="prose-stack prose-long">
             <p>We assess your operation by reviewing your agreements, price book, recent proposals, and service P&amp;L. The assessment typically takes one to two weeks, depending on your business size and complexity. You receive a clear analysis of financial inefficiencies and actionable recommendations.</p>
@@ -282,6 +314,16 @@ export default function Home() {
           <header>
             <SectionMarker number="06" title="Who This Works For" />
             <h2 id="fit-title">Keystone works with four to six contractors at a time, concentrating on long-term engagements instead of short-term projects.</h2>
+            <figure className="section-visual section-visual-blueprint">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/chiller-plant-blueprint.webp"
+                alt="Blueprint-style drawing of a commercial central plant with centrifugal chillers and pumps"
+                width="1664"
+                height="936"
+                loading="lazy"
+              />
+            </figure>
           </header>
           <div className="prose-stack">
             <p>This limit is intentional, and Keystone declines more engagements than it accepts. This approach is most effective when:</p>
