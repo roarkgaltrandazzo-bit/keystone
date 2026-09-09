@@ -82,7 +82,7 @@ test("privacy page describes the actual contact and analytics behavior", async (
 
   assert.equal(response.status, 200);
   assert.match(html, /answers and score are never transmitted/i);
-  assert.match(html, /FormSubmit/);
+  assert.match(html, /preaddressed email/);
   assert.match(html, /two custom events/i);
   assert.match(html, /Plausible Analytics/);
 });
