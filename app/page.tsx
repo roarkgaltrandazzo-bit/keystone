@@ -139,15 +139,32 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="content-wide hero-inner">
-          <SectionMarker number="01" />
-          <h1>Service is the part of a mechanical contractor’s business that delivers ongoing, increasing value.</h1>
-          <div className="hero-body">
-            <p>Keystone provides service agreement programs for commercial and industrial mechanical contractors. These programs address scoping, pricing, service sales, renewals, and weekly procedures to ensure consistent progress. The programs integrate into your current operations and are managed by your existing team.</p>
-            <p>Tom Randazzo brings twenty years of experience in commercial service sales and leadership at Carrier, Johnson Controls, and privately held mechanical contractors.</p>
-          </div>
-          <div className="hero-actions">
-            <TrackedLink className="phone-button" href="tel:+19205854179" eventName="Phone-link click">Call Tom · 920-585-4179</TrackedLink>
-            <a className="text-link" href="#build">What we build →</a>
+          <div className="hero-grid">
+            <div className="hero-heading">
+              <SectionMarker number="01" />
+              <h1>Service is the part of a mechanical contractor’s business that delivers ongoing, increasing value.</h1>
+            </div>
+            <figure className="hero-equipment">
+              {/* The bundled WebP is already compressed and must render without an image service. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/mechanical-room-hero.webp"
+                alt="Centrifugal chiller and piping in a commercial mechanical room"
+                width="1536"
+                height="1024"
+                fetchPriority="high"
+              />
+            </figure>
+            <div className="hero-detail">
+              <div className="hero-body">
+                <p>Keystone provides service agreement programs for commercial and industrial mechanical contractors. These programs address scoping, pricing, service sales, renewals, and weekly procedures to ensure consistent progress. The programs integrate into your current operations and are managed by your existing team.</p>
+                <p>Tom Randazzo brings twenty years of experience in commercial service sales and leadership at Carrier, Johnson Controls, and privately held mechanical contractors.</p>
+              </div>
+              <div className="hero-actions">
+                <TrackedLink className="phone-button" href="tel:+19205854179" eventName="Phone-link click">Call Tom · 920-585-4179</TrackedLink>
+                <a className="text-link" href="#build">What we build →</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -169,15 +186,6 @@ export default function Home() {
             </dl>
           </article>
           <p className="field-note-caption">Built into the operation you already own.</p>
-          <figure className="field-equipment-photo">
-            <img
-              src="/mechanical-room-hero.webp"
-              alt="Centrifugal chiller and piping in a commercial mechanical room"
-              width="1536"
-              height="1024"
-              loading="lazy"
-            />
-          </figure>
         </div>
       </section>
 
@@ -204,23 +212,25 @@ export default function Home() {
 
       <section className="section section-case" id="case" aria-labelledby="case-title">
         <div className="content-wide">
-          <header className="section-heading">
-            <SectionMarker number="03" title="The Case for Service" />
-            <h2 id="case-title">Every agreement you sign pays four times.</h2>
-            <p>A project generates revenue once and ends. An agreement delivers recurring monthly revenue, scheduled team access, priority for service calls, and opportunities for equipment replacements. Pricing regularly reflects only the initial benefit, while the others are overlooked.</p>
-          </header>
-          <figure className="blueprint-plate">
-            <picture>
-              <source srcSet="/keystone-blueprint.webp" type="image/webp" />
-              <img
-                src="/keystone-blueprint.png"
-                alt="Blueprint-style drawings of rooftop HVAC equipment, mechanical-room piping, controls, and field service gauges"
-                width="1798"
-                height="875"
-                loading="lazy"
-              />
-            </picture>
-          </figure>
+          <div className="case-intro-grid">
+            <header className="section-heading">
+              <SectionMarker number="03" title="The Case for Service" />
+              <h2 id="case-title">Every agreement you sign pays four times.</h2>
+              <p>A project generates revenue once and ends. An agreement delivers recurring monthly revenue, scheduled team access, priority for service calls, and opportunities for equipment replacements. Pricing regularly reflects only the initial benefit, while the others are overlooked.</p>
+            </header>
+            <figure className="blueprint-plate">
+              <picture>
+                <source srcSet="/keystone-blueprint.webp" type="image/webp" />
+                <img
+                  src="/keystone-blueprint.png"
+                  alt="Blueprint-style drawings of rooftop HVAC equipment, mechanical-room piping, controls, and field service gauges"
+                  width="1798"
+                  height="875"
+                  loading="lazy"
+                />
+              </picture>
+            </figure>
+          </div>
           <ol className="return-grid">
             {serviceReturns.map((item) => (
               <li key={item.number}>
