@@ -3,17 +3,15 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { trackEvent } from "./TrackedLink";
 
-const formEndpoint = "https://formsubmit.co/ajax/tom@keystonecommercialpartners.com";
-
 export function InquiryForm() {
   const loadedAt = useRef<number | null>(null);
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sent" | "error">("idle");
 
   useEffect(() => {
     loadedAt.current = Date.now();
   }, []);
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
@@ -38,38 +36,20 @@ export function InquiryForm() {
       return;
     }
 
-    setStatus("sending");
+    const body = [
+      "Name: " + value("name"),
+      "Company: " + value("company"),
+      "Email: " + (email || "Not provided"),
+      "Phone: " + (phone || "Not provided"),
+    ].join("\n");
 
-    try {
-      const response = await fetch(formEndpoint, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: value("name"),
-          company: value("company"),
-          email: email || "Not provided",
-          phone: phone || "Not provided",
-          _subject: "New Keystone website inquiry",
-          _template: "table",
-          _captcha: "false",
-          _honey: "",
-        }),
-      });
-
-      if (!response.ok) throw new Error("Submission failed");
-
-      const result = await response.json() as { success?: string | boolean };
-      if (result.success === false || result.success === "false") throw new Error("Submission failed");
-
-      trackEvent("Form submission");
-      form.reset();
-      setStatus("sent");
-    } catch {
-      setStatus("error");
-    }
+    trackEvent("Form submission");
+    setStatus("sent");
+    window.location.href =
+      "mailto:tom@keystonecommercialpartners.com?subject=" +
+      encodeURIComponent("New Keystone website inquiry") +
+      "&body=" +
+      encodeURIComponent(body);
   }
 
   if (status === "sent") {
@@ -123,10 +103,7 @@ export function InquiryForm() {
         <input id="contact-website" name="_honey" tabIndex={-1} autoComplete="off" />
       </div>
       <div className="form-action">
-        <button type="submit" disabled={status === "sending"}>
-          {status === "sending" ? "Sending" : "Send"}
-        </button>
-        <p>Name and company are required. Add either an email or phone number.</p>
+        <button type="submit">→ Send</button>
       </div>
       {status === "error" ? (
         <p className="form-error" role="alert">The form didn’t send. Please wait a moment and try again, or use the phone or email above.</p>
