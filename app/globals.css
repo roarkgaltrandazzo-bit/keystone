@@ -433,6 +433,23 @@ h3 {
   text-transform: uppercase;
 }
 
+.field-equipment-photo {
+  width: min(1120px, 100%);
+  aspect-ratio: 16 / 6;
+  margin: clamp(56px, 7vw, 86px) auto 0;
+  overflow: hidden;
+  border: 1px solid var(--navy);
+  background: var(--navy-dark);
+}
+
+.field-equipment-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  filter: saturate(0.72) contrast(1.05);
+}
+
 .section {
   padding: clamp(96px, 11vw, 156px) 0;
 }
@@ -516,6 +533,26 @@ h3 {
 .section-closing {
   font-size: 20px;
   line-height: 1.68;
+}
+
+.blueprint-plate {
+  width: min(1030px, 100%);
+  aspect-ratio: 1798 / 875;
+  margin: 0 0 58px auto;
+  overflow: hidden;
+  border: 1px solid var(--navy);
+  background: var(--navy);
+}
+
+.blueprint-plate picture,
+.blueprint-plate img {
+  width: 100%;
+  height: 100%;
+}
+
+.blueprint-plate img {
+  object-fit: cover;
+  object-position: center;
 }
 
 .return-grid,
@@ -1253,6 +1290,19 @@ h3 {
     margin-bottom: 50px;
   }
 
+  .field-equipment-photo {
+    aspect-ratio: 16 / 9;
+  }
+
+  .blueprint-plate {
+    aspect-ratio: 4 / 3;
+    margin-bottom: 48px;
+  }
+
+  .blueprint-plate img {
+    object-position: 76% center;
+  }
+
   .return-grid {
     grid-template-columns: 1fr;
     column-gap: 0;
@@ -1418,6 +1468,11 @@ h3 {
   .field-note-caption {
     font-size: 11px;
     text-align: left;
+  }
+
+  .field-equipment-photo {
+    aspect-ratio: 4 / 3;
+    margin-top: 46px;
   }
 
   .section {

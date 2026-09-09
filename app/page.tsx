@@ -169,6 +169,15 @@ export default function Home() {
             </dl>
           </article>
           <p className="field-note-caption">Built into the operation you already own.</p>
+          <figure className="field-equipment-photo">
+            <img
+              src="/mechanical-room-hero.webp"
+              alt="Centrifugal chiller and piping in a commercial mechanical room"
+              width="1536"
+              height="1024"
+              loading="lazy"
+            />
+          </figure>
         </div>
       </section>
 
@@ -200,6 +209,18 @@ export default function Home() {
             <h2 id="case-title">Every agreement you sign pays four times.</h2>
             <p>A project generates revenue once and ends. An agreement delivers recurring monthly revenue, scheduled team access, priority for service calls, and opportunities for equipment replacements. Pricing regularly reflects only the initial benefit, while the others are overlooked.</p>
           </header>
+          <figure className="blueprint-plate">
+            <picture>
+              <source srcSet="/keystone-blueprint.webp" type="image/webp" />
+              <img
+                src="/keystone-blueprint.png"
+                alt="Blueprint-style drawings of rooftop HVAC equipment, mechanical-room piping, controls, and field service gauges"
+                width="1798"
+                height="875"
+                loading="lazy"
+              />
+            </picture>
+          </figure>
           <ol className="return-grid">
             {serviceReturns.map((item) => (
               <li key={item.number}>

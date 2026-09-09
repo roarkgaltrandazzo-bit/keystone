@@ -55,6 +55,10 @@ test("homepage carries required navigation, form, image, schema, and live links"
   assert.match(html, /name="company"/);
   assert.match(html, /name="email"/);
   assert.match(html, /name="phone"/);
+  assert.match(html, /mechanical-room-hero\.webp/);
+  assert.match(html, /Centrifugal chiller and piping in a commercial mechanical room/);
+  assert.match(html, /keystone-blueprint\.webp/);
+  assert.match(html, /Blueprint-style drawings of rooftop HVAC equipment/);
   assert.match(html, /tom-randazzo\.webp/);
   assert.match(html, /Tom Randazzo, principal of Keystone Commercial Partners/);
   assert.match(html, /Organization/);
