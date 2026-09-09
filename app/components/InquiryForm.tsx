@@ -1,10 +1,15 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { trackEvent } from "./TrackedLink";
 
 export function InquiryForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const loadedAt = useRef<number | null>(null);
+  const [status, setStatus] = useState<"idle" | "sent" | "error">("idle");
+
+  useEffect(() => {
+    loadedAt.current = Date.now();
+  }, []);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -21,6 +26,16 @@ export function InquiryForm() {
       return;
     }
 
+    if (value("_honey")) {
+      setStatus("sent");
+      return;
+    }
+
+    if (loadedAt.current !== null && Date.now() - loadedAt.current < 1200) {
+      setStatus("error");
+      return;
+    }
+
     const body = [
       "Name: " + value("name"),
       "Company: " + value("company"),
@@ -28,25 +43,25 @@ export function InquiryForm() {
       "Phone: " + (phone || "Not provided"),
     ].join("\n");
 
-    trackEvent("Contact form submission");
-    setSubmitted(true);
+    trackEvent("Form submission");
+    setStatus("sent");
     window.location.href =
       "mailto:tom@keystonecommercialpartners.com?subject=" +
-      encodeURIComponent("Keystone service review request") +
+      encodeURIComponent("New Keystone website inquiry") +
       "&body=" +
       encodeURIComponent(body);
   }
 
-  if (submitted) {
+  if (status === "sent") {
     return (
       <div className="form-success" role="status" aria-live="polite">
-        Got it. I’ll call you within a business day.
+        Thank you. I’ll contact you within one business day.
       </div>
     );
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit}>
+    <form className="contact-form" onSubmit={handleSubmit} noValidate={false}>
       <div className="field">
         <label htmlFor="contact-name">Name</label>
         <input id="contact-name" name="name" autoComplete="name" required />
@@ -62,7 +77,11 @@ export function InquiryForm() {
           name="email"
           type="email"
           autoComplete="email"
-          onInput={(event) => event.currentTarget.setCustomValidity("")}
+          onInput={(event) => {
+            event.currentTarget.setCustomValidity("");
+            const phoneInput = event.currentTarget.form?.elements.namedItem("phone") as HTMLInputElement | null;
+            phoneInput?.setCustomValidity("");
+          }}
         />
       </div>
       <div className="field">
@@ -79,8 +98,16 @@ export function InquiryForm() {
           }}
         />
       </div>
-      <p className="form-requirement">Name and company are required. Add either an email or phone number.</p>
-      <button className="button button-primary" type="submit">Book the service review</button>
+      <div className="honey-field" aria-hidden="true">
+        <label htmlFor="contact-website">Website</label>
+        <input id="contact-website" name="_honey" tabIndex={-1} autoComplete="off" />
+      </div>
+      <div className="form-action">
+        <button type="submit">→ Send</button>
+      </div>
+      {status === "error" ? (
+        <p className="form-error" role="alert">The form didn’t send. Please wait a moment and try again, or use the phone or email above.</p>
+      ) : null}
     </form>
   );
 }

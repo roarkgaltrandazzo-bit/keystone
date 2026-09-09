@@ -2,21 +2,24 @@
 
 Website for Tom Randazzo's commercial HVAC and mechanical service-growth practice.
 
-The page is built around one idea: a maintenance agreement creates scheduled revenue, puts technicians inside the building, earns the first call, and leads to the next repair, retrofit, or replacement.
+The public site is a single-page credibility check for contractor owners and the people they forward the link to.
 
 ## Main page
 
-- Owner situations Tom usually walks into
-- Five-step maintenance-base loop
-- Structure, pricing, selling, renewing, and operating support
-- Three-part engagement
-- Career proof and background
-- Thirty-minute service review form
-- Twelve-question Service Base Scorecard
+- What Keystone sees most often
+- The case for commercial service agreements
+- The nine linked decisions behind an agreement program
+- How Keystone works and who the engagement fits
+- Tom's commercial service background
+- Direct phone, email, and a four-field contact form
+
+## Scorecard
+
+The twelve-question Service Base Scorecard lives at `/scorecard`. It is unlinked from public navigation, excluded from the sitemap, and marked `noindex`. Answers and scoring remain in the browser.
 
 ## Forms
 
-Service review submissions and requested scorecard breakdowns are saved to D1 through `/api/leads`. The public GitHub Pages build posts to the same hosted endpoint.
+The contact form opens a preaddressed email to Tom. It requires name and company plus either email or phone, and uses a honeypot and elapsed-time check without a visible CAPTCHA.
 
 ## Local development
 

@@ -4,6 +4,21 @@ import { PageShell } from "../components/SiteChrome";
 export const metadata: Metadata = {
   title: "Privacy | Keystone Commercial Partners",
   description: "How Keystone Commercial Partners handles scorecard answers, contact information, and website analytics.",
+  alternates: { canonical: "/privacy/" },
+  openGraph: {
+    title: "Privacy | Keystone Commercial Partners",
+    description: "How Keystone Commercial Partners handles scorecard answers, contact information, and website analytics.",
+    type: "website",
+    url: "/privacy/",
+    siteName: "Keystone Commercial Partners",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Keystone Commercial Partners" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy | Keystone Commercial Partners",
+    description: "How Keystone Commercial Partners handles scorecard answers, contact information, and website analytics.",
+    images: ["/og.png"],
+  },
 };
 
 export default function PrivacyPage() {
@@ -14,26 +29,26 @@ export default function PrivacyPage() {
           <p className="eyebrow">Privacy</p>
           <h1>What stays in your browser. What doesn&apos;t.</h1>
           <p className="privacy-intro">
-            The scorecard is private by design. Contact information only leaves your device when you choose to send it.
+            The scorecard is private by design. Contact information only leaves your device when you submit the form.
           </p>
 
           <section className="privacy-block">
             <h2>The scorecard</h2>
             <p>The scorecard runs entirely in your browser. Your answers and score are never transmitted to Keystone, Plausible, or anyone else, and they are not stored.</p>
-            <p>Keystone records only that a scorecard was started or completed. Those events contain no answers, score, question data, or partial-completion information.</p>
+            <p>Keystone does not record scorecard starts, completions, answers, scores, question data, or partial-completion information.</p>
           </section>
 
           <section className="privacy-block">
             <h2>The contact form</h2>
             <p>The form asks for four fields: name, company, email, and phone. Name and company are required. You may provide either email or phone as your contact method.</p>
-            <p>Submitting the form opens an email addressed to tom@keystonecommercialpartners.com in your email application. Keystone receives the information only if you send that email. It is used to respond to your request.</p>
+            <p>Submitting the form opens a preaddressed email in your device&apos;s email application. Your details are not sent to Keystone unless you send that email.</p>
             <p>There is no marketing list, automated sequence, or sale of submitted contact information.</p>
           </section>
 
           <section className="privacy-block">
             <h2>Analytics</h2>
             <p>This site uses Plausible Analytics. Plausible is configured without cookies and without advertising features.</p>
-            <p>Keystone tracks page visits, call-button clicks, phone-link taps, contact-form submissions, scorecard starts, and scorecard completions. Scorecard answers and partial answers are never tracked.</p>
+            <p>Keystone tracks page visits and two custom events: contact-form submissions and phone-link clicks. Scorecard activity, answers, and partial answers are never tracked.</p>
           </section>
 
           <section className="privacy-block">
