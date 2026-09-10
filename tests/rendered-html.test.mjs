@@ -59,6 +59,14 @@ test("homepage carries required navigation, form, image, schema, and live links"
   assert.match(html, /Centrifugal chiller and piping in a commercial mechanical room/);
   assert.match(html, /keystone-blueprint\.webp/);
   assert.match(html, /Blueprint-style drawings of rooftop HVAC equipment/);
+  assert.match(html, /commercial-rooftop\.webp/);
+  assert.match(html, /Commercial rooftop air-handling equipment and ductwork/);
+  assert.match(html, /bas-controls\.webp/);
+  assert.match(html, /Building automation controls in a commercial mechanical room/);
+  assert.match(html, /boiler-room-blueprint\.webp/);
+  assert.match(html, /Blueprint-style drawing of a commercial boiler room/);
+  assert.match(html, /chiller-plant-blueprint\.webp/);
+  assert.match(html, /Blueprint-style drawing of a commercial central plant/);
   assert.match(html, /tom-randazzo\.webp/);
   assert.match(html, /Tom Randazzo, principal of Keystone Commercial Partners/);
   assert.match(html, /Organization/);

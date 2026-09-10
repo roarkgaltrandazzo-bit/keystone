@@ -511,6 +511,29 @@ h3 {
   font-size: clamp(2.25rem, 3.6vw, 3.45rem);
 }
 
+.section-visual {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  margin: clamp(38px, 5vw, 58px) 0 0;
+  overflow: hidden;
+  border: 1px solid var(--navy);
+  background: var(--navy);
+}
+
+.section-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section-visual-photo img {
+  filter: saturate(0.72) contrast(1.05);
+}
+
+.section-visual-blueprint {
+  aspect-ratio: 16 / 9;
+}
+
 .prose-stack {
   font-size: 19px;
   line-height: 1.72;
@@ -570,6 +593,24 @@ h3 {
 .case-intro-grid .section-heading {
   width: 100%;
   margin-bottom: 0;
+}
+
+.build-intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
+  gap: clamp(48px, 6vw, 82px);
+  align-items: stretch;
+  margin-bottom: 66px;
+}
+
+.build-intro-grid .section-heading {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.build-intro-grid .section-visual {
+  min-height: 430px;
+  margin: 0;
 }
 
 .blueprint-plate {
@@ -1257,6 +1298,11 @@ h3 {
     gap: 48px;
   }
 
+  .build-intro-grid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(370px, 1.1fr);
+    gap: 48px;
+  }
+
   .about-heading,
   .about-copy,
   .client-account-slot,
@@ -1378,6 +1424,21 @@ h3 {
     grid-template-columns: 1fr;
     gap: 38px;
     margin-bottom: 48px;
+  }
+
+  .build-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 38px;
+    margin-bottom: 48px;
+  }
+
+  .build-intro-grid .section-visual {
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+
+  .editorial-grid .section-visual {
+    width: min(560px, 100%);
   }
 
   .blueprint-plate {
@@ -1571,6 +1632,10 @@ h3 {
 
   .editorial-grid {
     gap: 38px;
+  }
+
+  .section-visual {
+    margin-top: 30px;
   }
 
   .editorial-grid header h2,
