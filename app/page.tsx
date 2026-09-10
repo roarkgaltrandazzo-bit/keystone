@@ -141,8 +141,8 @@ export default function Home() {
         <div className="content-wide hero-inner">
           <div className="hero-grid">
             <div className="hero-heading">
-              <SectionMarker number="01" />
-              <h1>Service is the part of a mechanical contractor’s business that delivers ongoing, increasing value.</h1>
+              <SectionMarker number="01" title="FOR COMMERCIAL AND INDUSTRIAL MECHANICAL CONTRACTORS" />
+              <h1>A project ends. A service agreement can renew for years.</h1>
             </div>
             <figure className="hero-equipment">
               {/* The bundled WebP is already compressed and must render without an image service. */}
@@ -157,12 +157,15 @@ export default function Home() {
             </figure>
             <div className="hero-detail">
               <div className="hero-body">
-                <p>Keystone provides service agreement programs for commercial and industrial mechanical contractors. These programs address scoping, pricing, service sales, renewals, and weekly procedures to ensure consistent progress. The programs integrate into your current operations and are managed by your existing team.</p>
-                <p>Tom Randazzo brings twenty years of experience in commercial service sales and leadership at Carrier, Johnson Controls, and privately held mechanical contractors.</p>
+                <p>That recurring base gives you revenue already sold, technician hours already scheduled, and the first look at repairs, retrofits, and replacements inside buildings you already serve.</p>
+                <p>Keystone builds the process inside your existing operation: agreement scope, pricing, service sales, renewals, and weekly management. Tom Randazzo leads every engagement alongside your team. He has spent twenty years selling commercial service and leading service teams at Carrier, Johnson Controls, and privately held mechanical contractors.</p>
               </div>
               <div className="hero-actions">
-                <TrackedLink className="phone-button" href="tel:+19205854179" eventName="Phone-link click">Call Tom · 920-585-4179</TrackedLink>
-                <a className="text-link" href="#build">What we build →</a>
+                <div>
+                  <p><TrackedLink className="phone-button" href="tel:+19205854179" eventName="Phone-link click">Call Tom · 920-585-4179</TrackedLink></p>
+                  <p>Thirty minutes. Nothing to prepare. Tell Tom how service operates today, and he’ll tell you what he would review first.</p>
+                  <a className="text-link" href="#build">What we build →</a>
+                </div>
               </div>
             </div>
           </div>
@@ -176,13 +179,13 @@ export default function Home() {
               <p>Field Note No. 001</p>
               <ThreeBarMark className="three-bar-mark-light" />
             </div>
-            <h2 id="field-note-title">What an engagement looks like</h2>
+            <h2 id="field-note-title">What working with Keystone looks like</h2>
             <dl className="fact-table">
-              <div><dt>Clients at a time</dt><dd>Four to six</dd></div>
-              <div><dt>The build</dt><dd>90 days inside your operation</dd></div>
-              <div><dt>After that</dt><dd>Ongoing, for as long as it’s earning its keep</dd></div>
-              <div><dt>Who does it</dt><dd>Your people, with Tom</dd></div>
               <div><dt>First step</dt><dd>A phone call</dd></div>
+              <div><dt>Assessment</dt><dd>One to two weeks</dd></div>
+              <div><dt>The build</dt><dd>90 days inside your operation</dd></div>
+              <div><dt>Who does it</dt><dd>Your people, with Tom</dd></div>
+              <div><dt>After that</dt><dd>Ongoing, for as long as it’s earning its keep</dd></div>
             </dl>
           </article>
           <p className="field-note-caption">Built into the operation you already own.</p>
