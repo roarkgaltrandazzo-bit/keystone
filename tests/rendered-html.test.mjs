@@ -25,8 +25,12 @@ test("homepage renders the approved single-page structure", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
   assert.match(html, /Commercial Service Programs for Mechanical Contractors \| Keystone Commercial Partners/);
   assert.equal((html.match(/<h1\b/gi) ?? []).length, 1);
-  assert.match(html, /Service is the part of a mechanical contractor’s business that delivers ongoing, increasing value/);
+  assert.match(html, /FOR COMMERCIAL AND INDUSTRIAL MECHANICAL CONTRACTORS/);
+  assert.match(html, /A project ends\. A service agreement can renew for years\./);
   assert.match(html, /Field Note No\. 001/);
+  assert.match(html, /What working with Keystone looks like/);
+  assert.match(html, /Assessment/);
+  assert.doesNotMatch(html, /Clients at a time/);
   assert.match(html, /What We See Most Often/);
   assert.match(html, /Every agreement you sign pays four times/);
   assert.match(html, /A service agreement results from nine key decisions/);
